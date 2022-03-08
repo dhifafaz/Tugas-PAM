@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -13,7 +14,7 @@ import formStyle from './MainFormStyle';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const MainForm = () => {
-    const [text, onChangeText] = React.useState({
+    const [text, onChangeText] = useState({
         asal: '',
         tujuan: '',
         tanggal: '',
