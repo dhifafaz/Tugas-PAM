@@ -41,7 +41,7 @@ const MainForm = () => {
                 <TextInput
                     style={formStyle.inputText}
                     onChangeText={handleTextChanges('asal')}
-                    value={text}
+                    value={text.asal}
                     placeholder="Masukkan Lokasi Keberangkatan"
                 />
             </View>
@@ -56,7 +56,7 @@ const MainForm = () => {
                 <TextInput
                     style={formStyle.inputText}
                     onChangeText={handleTextChanges('tujuan')}
-                    value={text}
+                    value={text.tujuan}
                     placeholder="Masukkan Lokasi Tujuan"
                 />
             </View>
@@ -71,7 +71,7 @@ const MainForm = () => {
                 <TextInput
                     style={formStyle.inputText}
                     onChangeText={handleTextChanges('tanggal')}
-                    value={text}
+                    value={text.tanggal}
                     placeholder="Masukkan Tanggal Keberangakatan"
                 />
             </View>
