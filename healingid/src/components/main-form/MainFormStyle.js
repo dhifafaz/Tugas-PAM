@@ -1,4 +1,5 @@
 import React from 'react';
+import { InputGroup } from 'react-bootstrap';
 import { StyleSheet } from 'react-native';
 
 const formStyle = StyleSheet.create({
@@ -47,7 +48,30 @@ const formStyle = StyleSheet.create({
         fontWeight: '700',
         textAlign: 'left',
         paddingLeft: 10,
-    }
+    },
+    container: {
+        marginTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    button: {
+        backgroundColor: 'orange',
+        borderRadius: 5,
+        padding: 10,
+        width: '70%',
+    },
+    buttonText: {
+        textAlign: 'center',
+        color: '#000',
+        fontSize: 20,
+        fontWeight: '700',
+    },
+    copyRight: {
+		zIndex: 1,
+		textAlign: 'center',
+		color: '#000'
+	},
 });
 
 export default formStyle;

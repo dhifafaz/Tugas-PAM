@@ -8,24 +8,11 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    Text,
-    useColorScheme,
-    View,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import {
-    Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import globalStyles from './src/assets/styles/globalStyles';
-import MainForm from './src/components/main-form/MainForm';
+import HomePage from './src/components/layouts/HomePage';
+import HasilPage from './src/components/layouts/HasilPage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 // import CustomHeader from './src/components/custom-header/CustomHeader';
 
 // const Section = ({children, title}): Node => {
@@ -53,36 +40,17 @@ import MainForm from './src/components/main-form/MainForm';
 //     </View>
 //   );
 // };
+const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
-    const isDarkMode = useColorScheme() === 'dark';
-
-    const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
 
     return (
-        <SafeAreaView style={backgroundStyle}>
-            <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-            <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            contentContainerStyle={globalStyles.mainContainer}
-            >
-            {/* <CustomHeader/> */}
-            <View
-                style={globalStyles.background}>
-                <View 
-                    style={globalStyles.appsContent}
-                >
-                    <Text style={globalStyles.titleText}>
-                        Healing.ID    
-                    </Text>
-                    <MainForm/>
-                </View>
-            </View>
-            
-            </ScrollView>
-        </SafeAreaView>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
+                <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="HasilPage" component={HasilPage} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
 

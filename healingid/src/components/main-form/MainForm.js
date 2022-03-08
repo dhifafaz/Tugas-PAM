@@ -7,13 +7,13 @@ import {
     Text,
     View,
     TextInput,
-    Button,
-    Pressable,
+    TouchableOpacity,
 } from 'react-native';
 import formStyle from './MainFormStyle';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const MainForm = () => {
+
+const MainForm = ({navigation}) => {
     const [text, onChangeText] = useState({
         asal: '',
         tujuan: '',
@@ -67,8 +67,9 @@ const MainForm = () => {
             </Text>
             <View style={formStyle.formInput}>
                 <Icon 
-                style={formStyle.inputIcon} 
-                    name="date-range" color="#000"/>
+                    style={formStyle.inputIcon} 
+                    name="date-range" 
+                    color="#000"/>
                 <TextInput
                     style={formStyle.inputText}
                     onChangeText={handleTextChanges('tanggal')}
@@ -77,9 +78,23 @@ const MainForm = () => {
                 />
             </View>
 
-            <Pressable>
-                
-            </Pressable>
+            <View style={formStyle.container}>
+                <TouchableOpacity
+                    style={formStyle.button}
+                    onPress={() => navigation.navigate('HasilPage', {data: text})}
+                >
+                    <Text
+                        style={formStyle.buttonText}
+                    >
+                        Cari
+                    </Text>
+                </TouchableOpacity>
+            </View>
+            <View style={formStyle.container}>
+                <Text style={formStyle.copyRight}>
+                    Copyright by Dhifaf @ 2022
+                </Text>
+            </View>
         </View>
     );
 };
