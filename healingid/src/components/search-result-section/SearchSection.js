@@ -9,8 +9,7 @@ import {
 import {
     JADWAL, 
     MASKAPAI, 
-    BANDARA
-} from '../../action/DataBase';
+    BANDARA} from '../../action/DataBase';
 import searchResultStyle from './SearchResultStyle.js';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -106,17 +105,21 @@ const SearchSection = ({dataMaster}) => {
         if (asal === '' || tujuan === '' || tanggal === '') {
             return DataNotFound();
         } else {
-            const departureId = BANDARA.find(item => item.  bandara_nama.toLowerCase() === asal.toLowerCase()).bandara_id;
-
-            const arrivalId = BANDARA.find(item => item.bandara_nama.toLowerCase() === tujuan.toLowerCase()).bandara_id;
-
-            const searchResult = JADWAL.filter(item => item.bandara_id_keberangkatan.toLowerCase() === departureId.toLowerCase() && item.bandara_id_kedatangan.toLowerCase() === arrivalId.toLowerCase() && item.tanggal === tanggal);
-            
-            // console.log(searchResult);
-            
-            let renderedItem = (searchResult.length>0) ? DataFound(searchResult) : DataNotFound();
-
-            return renderedItem;
+            const departureId = BANDARA.filter(item => item.bandara_nama.toLowerCase() === asal.toLowerCase());                
+            const arrivalId = BANDARA.filter(item => item.bandara_nama.toLowerCase() === tujuan.toLowerCase());
+            console.log(departureId);
+            console.log(arrivalId);
+            if (departureId != "" && arrivalId != "") {
+                const depId = departureId[0].bandara_id;
+                const arrId = arrivalId[0].bandara_id;
+                // console.log("masuk");
+                const searchResult = JADWAL.filter(item => item.bandara_id_keberangkatan === depId && item.bandara_id_kedatangan === arrId && item.tanggal === tanggal);
+                return DataFound(searchResult);
+                
+            } else {
+                // console.log('masuk null');
+                return DataNotFound();
+            };
         }
     }
 
