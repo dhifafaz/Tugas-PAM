@@ -67,7 +67,7 @@ const JADWAL = [
     {
       jadwal_id: "02",
       bandara_id_keberangkatan: "B01",
-      bandara_id_kedatangan: "B03",
+      bandara_id_kedatangan: "B02",
       maskapai_id: "F06",
       tanggal: "2020-01-01",
     },
