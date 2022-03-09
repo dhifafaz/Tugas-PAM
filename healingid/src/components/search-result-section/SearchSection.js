@@ -22,7 +22,7 @@ const SearchSection = ({dataMaster}) => {
         return (
             <View style={searchResultStyle.itemContainer}>
                 <Text style={searchResultStyle.textDanger}>
-                    Maaf data tidak ditemukan, silahkan cek kembali lokasi keberangkatan, tujuan, dan tanggal keberangkatan anda!
+                    Maaf data tidak ditemukan, silahkan cek kembali lokasi keberangkatan, dan tujuan anda!
                 </Text>
             </View>
         )
@@ -105,20 +105,21 @@ const SearchSection = ({dataMaster}) => {
         if (asal !== '' || tujuan !== '' || tanggal !== '') {
             const departureId = BANDARA.filter(item => item.bandara_nama.toLowerCase().replace(/\s/g, '') === asal.toLowerCase().replace(/\s/g, ''));                
             const arrivalId = BANDARA.filter(item => item.bandara_nama.toLowerCase().replace(/\s/g, '') === tujuan.toLowerCase().replace(/\s/g, ''));
-            console.log(departureId);
-            console.log(arrivalId);
+            // console.log(departureId);
+            // console.log(arrivalId);
 
             if (departureId != "" && arrivalId != "") {
                 const depId = departureId[0].bandara_id;
                 const arrId = arrivalId[0].bandara_id;
                 // console.log("masuk");
                 const searchResult = JADWAL.filter(item => item.bandara_id_keberangkatan.toLowerCase().replace(/\s/g, '') === depId.toLowerCase().replace(/\s/g, '') && item.bandara_id_kedatangan.toLowerCase().replace(/\s/g, '') === arrId.toLowerCase().replace(/\s/g, '') && item.tanggal === tanggal);
-                console.log(searchResult);
+                // console.log(searchResult);
                 if (searchResult.length == "") {
                     return (
                         <View style={searchResultStyle.itemContainer}>
                             <Text style={searchResultStyle.textDanger}>
-                                Maaf data tidak ditemukan, tidak ada penerbangan yang tersedia pada tanggal tersebut...
+                                Maaf data tidak ditemukan, tidak ada penerbangan yang tersedia pada tanggal tersebut.
+                                Silahkan pilih tanggal keberangkatan lain...
                             </Text>
                         </View>
                     );
