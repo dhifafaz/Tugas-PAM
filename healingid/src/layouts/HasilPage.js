@@ -7,54 +7,51 @@ import {
     View,
     TextInput,
     Button,
+    useColorScheme,
     TouchableOpacity,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {
+    Colors,
+} from 'react-native/Libraries/NewAppScreen';
 import {JADWAL, MASKAPAI, BANDARA} from '../action/DataBase'
-import globalStyles from '../assets/styles/globalStyles';
+import HeaderDetailPage from '../components/header-detail-page/HeaderDetailPage';
+import hasilPageStyle from '../assets/styles/HasilPageStyle';
+import SearchSection from '../components/search-result-section/SearchSection';
+import globalStyles from '../assets/styles/GlobalStyles';
 
 const HasilPage = ({ route, navigation }) => {
     const { data } = route.params;
+
+    const isDarkMode = useColorScheme() === 'dark';
+
+    const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    };
+
     return (
-        // <SafeAreaView style={backgroundStyle}>
-        //     <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <SafeAreaView style={backgroundStyle}>
+            <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             
-        //     <ScrollView
-        //         contentInsetAdjustmentBehavior="automatic"
-        //         contentContainerStyle={globalStyles.mainContainer}
-        //     >
+            <ScrollView
+                contentInsetAdjustmentBehavior="automatic"
+                contentContainerStyle={hasilPageStyle.mainContainer}
+            >
             
-        //         <View
-        //             style={globalStyles.background}
-        //         >
-        //             <CustomHeaderBack/>
-        //             <View 
-        //                 style={globalStyles.appsContent}
-        //             >
+                <View 
+                    style={hasilPageStyle.appsContent}>
+                    <HeaderDetailPage navigation={ navigation }/>
+                    {/* <View 
+                        style={hasilPageStyle.appsContent}
+                    >
                     
-        //             </View>
-        //         </View>
+                    </View> */}
+                    <SearchSection dataMaster={data}/>
+                </View>
                 
-        //     </ScrollView>
+            </ScrollView>
             
-        // </SafeAreaView>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-        <Text>Asal: {data.asal}</Text>
-        <Text>Tujuan: {data.tujuan}</Text>
-        <Text>Tanggal: {data.tanggal}</Text>
-        <Text>Maskapai: {MASKAPAI[0].maskapai_nama}</Text>
-        <Button
-            title="Go to Details... again"
-            onPress={() =>
-            navigation.push('Details', {
-                itemId: Math.floor(Math.random() * 100),
-            })
-            }
-        />
-        <Button title="Go to Home" onPress={() => navigation.navigate('HomePage')} />
-        <Button title="Go back" onPress={() => navigation.goBack()} />
-        </View>
+        </SafeAreaView>
+        
     );
 };
 

@@ -8,8 +8,8 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import HomePage from './src/components/layouts/HomePage';
-import HasilPage from './src/components/layouts/HasilPage';
+import HomePage from './src/layouts/HomePage';
+import HasilPage from './src/layouts/HasilPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 

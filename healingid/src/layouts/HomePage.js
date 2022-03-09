@@ -9,12 +9,8 @@ import {
 } from 'react-native';
 import {
     Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import globalStyles from '../assets/styles/globalStyles';
+import globalStyles from '../assets/styles/GlobalStyles';
 import MainForm from '../components/main-form/MainForm';
 import CustomHeader from '../components/custom-header/CustomHeader';
 

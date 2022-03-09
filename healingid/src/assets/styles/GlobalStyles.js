@@ -20,6 +20,7 @@ const globalStyles = StyleSheet.create({
 	appsContent: {
 		flex: 1,
 		alignItems: "center",
+		flexDirection: "column",
 	},
 	titleText: {
 		fontSize: 40,
