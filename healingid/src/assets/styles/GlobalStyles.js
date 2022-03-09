@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
     StyleSheet
 } from 'react-native';
@@ -27,7 +26,6 @@ const globalStyles = StyleSheet.create({
 		fontWeight: '700',
 		color: "white",
 		alignSelf: "center",
-		// top: '30%',
 	},
 	highlight: {
 		fontWeight: '700',

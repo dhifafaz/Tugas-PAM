@@ -6,7 +6,11 @@ import {
     TouchableOpacity,
     Image,
 } from 'react-native';
-import {JADWAL, MASKAPAI, BANDARA} from '../../action/DataBase';
+import {
+    JADWAL, 
+    MASKAPAI, 
+    BANDARA
+} from '../../action/DataBase';
 import searchResultStyle from './SearchResultStyle.js';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 

@@ -1,5 +1,3 @@
-import React from 'react';
-import { InputGroup } from 'react-bootstrap';
 import { StyleSheet } from 'react-native';
 
 const formStyle = StyleSheet.create({

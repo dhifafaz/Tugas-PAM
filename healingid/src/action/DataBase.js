@@ -1,5 +1,3 @@
-
-
 const MASKAPAI = [
     {
       maskapai_id: "F01",

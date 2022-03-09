@@ -1,23 +1,17 @@
 import React from 'react';
 import {
     SafeAreaView,
-    ScrollView,
     StatusBar,
-    Text,
     View,
-    TextInput,
-    Button,
     useColorScheme,
-    TouchableOpacity,
 } from 'react-native';
 import {
     Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import {JADWAL, MASKAPAI, BANDARA} from '../action/DataBase'
 import HeaderDetailPage from '../components/header-detail-page/HeaderDetailPage';
 import hasilPageStyle from '../assets/styles/HasilPageStyle';
 import SearchSection from '../components/search-result-section/SearchSection';
-import globalStyles from '../assets/styles/GlobalStyles';
+
 
 const HasilPage = ({ route, navigation }) => {
     const { data } = route.params;

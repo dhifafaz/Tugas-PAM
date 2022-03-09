@@ -1,7 +1,4 @@
-import React from 'react';
-import { 
-    StyleSheet
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const hasilPageStyle = StyleSheet.create({
 	mainContainer: {  
@@ -17,7 +14,6 @@ const hasilPageStyle = StyleSheet.create({
 		fontWeight: '700',
 		color: "white",
 		alignSelf: "center",
-		// top: '30%',
 	},
 	highlight: {
 		fontWeight: '700',

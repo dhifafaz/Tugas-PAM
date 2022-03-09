@@ -1,8 +1,4 @@
-import React from 'react';
-import {
-    StyleSheet,
-    Colors,
-} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const headerDetailPageStyle = StyleSheet.create({
     headerContainer: {
