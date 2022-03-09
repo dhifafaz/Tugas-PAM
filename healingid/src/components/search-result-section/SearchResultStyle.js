@@ -24,17 +24,20 @@ const searchResultStyle = StyleSheet.create({
         padding: 10,
     },
     maskapai: {
-        fontSize: 20,
+        fontSize: 16,
         fontWeight: '700',
         color: 'black',
+        maxWidth: '60%',
     },
     bandara: {
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: '700',
         color: 'black',
+        maxWidth: '45%',
+        marginBottom: 10,
     },
     tanggal: {
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: '700',
         color: 'black',
     },
