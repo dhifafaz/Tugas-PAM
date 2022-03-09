@@ -21,7 +21,7 @@ const SearchSection = ({dataMaster}) => {
     const DataNotFound = () => {
         return (
             <View style={searchResultStyle.itemContainer}>
-                <Text style={searchResultStyle.text}>
+                <Text style={searchResultStyle.textDanger}>
                     Maaf data tidak ditemukan, silahkan cek kembali lokasi keberangkatan, tujuan, dan tanggal keberangkatan anda!
                 </Text>
             </View>
@@ -102,26 +102,37 @@ const SearchSection = ({dataMaster}) => {
     };
 
     function RenderData() {
-        if (asal === '' || tujuan === '' || tanggal === '') {
-            return DataNotFound();
-        } else {
-            const departureId = BANDARA.filter(item => item.bandara_nama.toLowerCase() === asal.toLowerCase());                
-            const arrivalId = BANDARA.filter(item => item.bandara_nama.toLowerCase() === tujuan.toLowerCase());
+        if (asal !== '' || tujuan !== '' || tanggal !== '') {
+            const departureId = BANDARA.filter(item => item.bandara_nama.toLowerCase().replace(/\s/g, '') === asal.toLowerCase().replace(/\s/g, ''));                
+            const arrivalId = BANDARA.filter(item => item.bandara_nama.toLowerCase().replace(/\s/g, '') === tujuan.toLowerCase().replace(/\s/g, ''));
             console.log(departureId);
             console.log(arrivalId);
+
             if (departureId != "" && arrivalId != "") {
                 const depId = departureId[0].bandara_id;
                 const arrId = arrivalId[0].bandara_id;
                 // console.log("masuk");
-                const searchResult = JADWAL.filter(item => item.bandara_id_keberangkatan === depId && item.bandara_id_kedatangan === arrId && item.tanggal === tanggal);
+                const searchResult = JADWAL.filter(item => item.bandara_id_keberangkatan.toLowerCase().replace(/\s/g, '') === depId.toLowerCase().replace(/\s/g, '') && item.bandara_id_kedatangan.toLowerCase().replace(/\s/g, '') === arrId.toLowerCase().replace(/\s/g, '') && item.tanggal === tanggal);
+                console.log(searchResult);
+                if (searchResult.length == "") {
+                    return (
+                        <View style={searchResultStyle.itemContainer}>
+                            <Text style={searchResultStyle.textDanger}>
+                                Maaf data tidak ditemukan, tidak ada penerbangan yang tersedia pada tanggal tersebut...
+                            </Text>
+                        </View>
+                    );
+                }
                 return DataFound(searchResult);
                 
-            } else {
-                // console.log('masuk null');
-                return DataNotFound();
             };
-        }
-    }
+            return DataNotFound();
+        };
+        return DataNotFound();
+            
+
+    };
+
 
     return (
         <View style={searchResultStyle.resultContainer}>

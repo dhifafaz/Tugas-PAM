@@ -38,10 +38,11 @@ const searchResultStyle = StyleSheet.create({
         fontWeight: '700',
         color: 'black',
     },
-    text: {
+    textDanger: {
         fontSize: 15,
         fontWeight: '700',
         color: 'red',
+        textAlign: 'center',
     },
     rowContainer: {
         flex: 1,
