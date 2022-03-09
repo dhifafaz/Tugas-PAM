@@ -74,7 +74,7 @@ const JADWAL = [
     {
       jadwal_id: "03",
       bandara_id_keberangkatan: "B01",
-      bandara_id_kedatangan: "B02",
+      bandara_id_kedatangan: "B03",
       maskapai_id: "F02",
       tanggal: "2020-02-02",
     },
@@ -82,7 +82,7 @@ const JADWAL = [
       jadwal_id: "04",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
-      maskapai_id: "F02",
+      maskapai_id: "F04",
       tanggal: "2020-02-02",
     },
     {
