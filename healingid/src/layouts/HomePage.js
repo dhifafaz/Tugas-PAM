@@ -14,9 +14,9 @@ import {
     LearnMoreLinks,
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import globalStyles from '../../assets/styles/globalStyles';
-import MainForm from '../main-form/MainForm';
-import CustomHeader from '../custom-header/CustomHeader';
+import globalStyles from '../assets/styles/globalStyles';
+import MainForm from '../components/main-form/MainForm';
+import CustomHeader from '../components/custom-header/CustomHeader';
 
 const HomePage = ({navigation}) => {
     const isDarkMode = useColorScheme() === 'dark';
