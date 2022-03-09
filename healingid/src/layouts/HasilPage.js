@@ -32,13 +32,9 @@ const HasilPage = ({ route, navigation }) => {
         <SafeAreaView style={backgroundStyle}>
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             
-            <ScrollView
-                contentInsetAdjustmentBehavior="automatic"
-                contentContainerStyle={hasilPageStyle.mainContainer}
-            >
             
                 <View 
-                    style={hasilPageStyle.appsContent}>
+                    style={hasilPageStyle.mainContainer}>
                     <HeaderDetailPage navigation={ navigation }/>
                     {/* <View 
                         style={hasilPageStyle.appsContent}
@@ -47,9 +43,6 @@ const HasilPage = ({ route, navigation }) => {
                     </View> */}
                     <SearchSection dataMaster={data}/>
                 </View>
-                
-            </ScrollView>
-            
         </SafeAreaView>
         
     );
