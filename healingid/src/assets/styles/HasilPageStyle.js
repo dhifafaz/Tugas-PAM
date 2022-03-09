@@ -6,7 +6,7 @@ import {
 const hasilPageStyle = StyleSheet.create({
 	mainContainer: {  
 		height: "100%",
-		backgroundColor: 'lavenderblush',
+		backgroundColor: 'ghostwhite',
 	},
 	appsContent: {
 		flex: 1,

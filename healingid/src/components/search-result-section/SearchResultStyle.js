@@ -15,7 +15,7 @@ const searchResultStyle = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 10,
-        margin: 5,
+        marginBottom: 20,
         backgroundColor: 'white',
         borderRadius: 5,
         borderWidth: 1,

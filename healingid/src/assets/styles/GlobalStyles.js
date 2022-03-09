@@ -6,7 +6,7 @@ import {
 const globalStyles = StyleSheet.create({
 	mainContainer: {  
 		height: "100%",
-		backgroundColor: 'lavenderblush',
+		backgroundColor: 'ghostwhite',
 	},
 	background: {
 		justifyContent: "center",
