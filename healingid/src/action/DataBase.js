@@ -4,32 +4,32 @@ const MASKAPAI = [
     {
       maskapai_id: "F01",
       maskapai_nama: "Garuda", 
-      maskapai_logo : " ",  
+      maskapai_logo : require('../assets/images/garuda.png'),  
     },
     {
       maskapai_id: "F02",
       maskapai_nama: "Citilink",
-      maskapai_logo: " ",
+      maskapai_logo: require('../assets/images/citilink.png'),
     },
     {
       maskapai_id: "F03",
       maskapai_nama: "Lion air",
-      maskapai_logo: " ",
+      maskapai_logo: require('../assets/images/lion.png'),
     },
     {
       maskapai_id: "F04",
       maskapai_nama: "Batik air",
-      maskapai_logo: " ",
+      maskapai_logo: require('../assets/images/batik.png'),
     },
     {
       maskapai_id: "F05",
       maskapai_nama: "American airlines",
-      maskapai_logo: " ",
+      maskapai_logo: require('../assets/images/americanair.png'),
     },
     {
       maskapai_id: "F06",
       maskapai_nama: "Wings air",
-      maskapai_logo: " ",
+      maskapai_logo: require('../assets/images/wingair.png'),
     },
     ];
 
@@ -98,6 +98,34 @@ const JADWAL = [
       bandara_id_kedatangan: "B05",
       maskapai_id: "F05",
       tanggal: "2020-03-03",
+    },
+    {
+      jadwal_id: "07",
+      bandara_id_keberangkatan: "B01",
+      bandara_id_kedatangan: "B03",
+      maskapai_id: "F01",
+      tanggal: "2020-02-02",
+    },
+    {
+      jadwal_id: "08",
+      bandara_id_keberangkatan: "B01",
+      bandara_id_kedatangan: "B03",
+      maskapai_id: "F02",
+      tanggal: "2020-02-02",
+    },
+    {
+      jadwal_id: "09",
+      bandara_id_keberangkatan: "B01",
+      bandara_id_kedatangan: "B03",
+      maskapai_id: "F05",
+      tanggal: "2020-02-02",
+    },
+    {
+      jadwal_id: "10",
+      bandara_id_keberangkatan: "B01",
+      bandara_id_kedatangan: "B03",
+      maskapai_id: "F05",
+      tanggal: "2020-02-02",
     },
   ];
 

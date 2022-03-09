@@ -3,9 +3,12 @@ import {
     View,
     Text,
     FlatList,
+    TouchableOpacity,
+    Image,
 } from 'react-native';
 import {JADWAL, MASKAPAI, BANDARA} from '../../action/DataBase';
 import searchResultStyle from './SearchResultStyle.js';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const SearchSection = ({dataMaster}) => {
     const {asal, tujuan, tanggal} = dataMaster;
@@ -29,34 +32,66 @@ const SearchSection = ({dataMaster}) => {
                 data={searchResult}
                 renderItem={({item}) => (
 
-                    <View 
+                    <TouchableOpacity 
                         style={searchResultStyle.itemContainer}
                     >
                         <View 
                             style={searchResultStyle.itemContent}
                         >
-                            <Text 
-                                style={searchResultStyle.maskapai}
+                            <View 
+                                style={searchResultStyle.rowContainer}
                             >
-                                {MASKAPAI.find(subItem => subItem.maskapai_id === item.maskapai_id).maskapai_nama}
-                            </Text>
-                            <Text 
-                                style={searchResultStyle.bandara}
-                            >
-                                {BANDARA.find(subItem => subItem.bandara_id === item.bandara_id_keberangkatan).bandara_nama}
-                            </Text>
-                            <Text 
-                                style={searchResultStyle.bandara}
-                            >
-                                {BANDARA.find(subItem => subItem.bandara_id === item.bandara_id_kedatangan).bandara_nama}
-                            </Text>
-                            <Text 
-                                style={searchResultStyle.tanggal}
-                            >
-                                    {item.tanggal}
-                            </Text>
+                                <View
+                                    style={searchResultStyle.imageContainer} 
+                                >
+                                    <Image 
+                                        source={MASKAPAI.find(subItem => subItem.maskapai_id === item.maskapai_id).maskapai_logo} 
+                                        style={searchResultStyle.image}
+                                    />
+                                </View>
+                                <View
+                                    style={searchResultStyle.columnContainer}
+                                >
+                                    <View
+                                        style={searchResultStyle.rowContainer}
+                                    >
+                                        <Text 
+                                            style={searchResultStyle.bandara}
+                                        >
+                                            {BANDARA.find(subItem => subItem.bandara_id === item.bandara_id_keberangkatan).bandara_nama}
+                                        </Text>
+
+                                        <MaterialIcons
+                                            name="arrow-right-alt"
+                                            color="#000"     
+                                            size={20}      
+                                        />
+                                        <Text 
+                                            style={searchResultStyle.bandara}
+                                        >
+                                            {BANDARA.find(subItem => subItem.bandara_id === item.bandara_id_kedatangan).bandara_nama}
+                                        </Text>
+                                    </View>
+
+                                    <View
+                                        style={searchResultStyle.rowContainer}
+                                    >
+                                        <Text 
+                                            style={searchResultStyle.maskapai}
+                                        >
+                                            {MASKAPAI.find(subItem => subItem.maskapai_id === item.maskapai_id).maskapai_nama}
+                                        </Text>
+                                        
+                                        <Text 
+                                            style={searchResultStyle.tanggal}
+                                        >
+                                                {item.tanggal}
+                                        </Text>
+                                    </View>
+                                </View>
+                            </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 )}
                 keyExtractor={item => item.jadwal_id}
             />
@@ -74,6 +109,7 @@ const SearchSection = ({dataMaster}) => {
             const searchResult = JADWAL.filter(item => item.bandara_id_keberangkatan.toLowerCase() === departureId.toLowerCase() && item.bandara_id_kedatangan.toLowerCase() === arrivalId.toLowerCase() && item.tanggal === tanggal);
             
             // console.log(searchResult);
+            
             let renderedItem = (searchResult.length>0) ? DataFound(searchResult) : DataNotFound();
 
             return renderedItem;
