@@ -4,6 +4,13 @@ import {
 } from 'react-native';
 
 const searchResultStyle = StyleSheet.create({
+    resultContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 30,
+    },
     itemContainer: {
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -13,6 +20,7 @@ const searchResultStyle = StyleSheet.create({
         borderRadius: 5,
         borderWidth: 1,
         borderColor: 'grey',
+
     },
     itemContent: {
         flex: 1,

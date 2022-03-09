@@ -8,7 +8,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import headerDetailPageStyle from './HeaderDetailPageStyle';
 
-const HeaderDetailPage = ({ navigation }) => {
+const HeaderDetailPage = ({ navigation, data }) => {
 
     return (
         <View 
@@ -43,7 +43,7 @@ const HeaderDetailPage = ({ navigation }) => {
                     
                 </Text>
                 <Text style={headerDetailPageStyle.bodyText}>
-                    (Tanggal Keberangakatan)
+                    Tanggal Keberangakatan : {data.tanggal}
                 </Text>
             </View>
         </View>

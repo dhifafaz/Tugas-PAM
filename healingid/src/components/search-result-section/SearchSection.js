@@ -38,7 +38,7 @@ const SearchSection = ({dataMaster}) => {
         );
     };
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={searchResultStyle.resultContainer}>
             <Text>sdsad</Text>
             <Text>Details Screen</Text>
             <DataFound/>

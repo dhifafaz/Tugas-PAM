@@ -35,7 +35,7 @@ const HasilPage = ({ route, navigation }) => {
             
                 <View 
                     style={hasilPageStyle.mainContainer}>
-                    <HeaderDetailPage navigation={ navigation }/>
+                    <HeaderDetailPage navigation={ navigation } data={ data }/>
                     {/* <View 
                         style={hasilPageStyle.appsContent}
                     >
