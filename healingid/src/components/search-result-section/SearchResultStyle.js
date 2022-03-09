@@ -43,6 +43,11 @@ const searchResultStyle = StyleSheet.create({
         fontWeight: '700',
         color: 'black',
     },
+    text: {
+        fontSize: 15,
+        fontWeight: '700',
+        color: 'red',
+    },
 });
 
 export default searchResultStyle;
