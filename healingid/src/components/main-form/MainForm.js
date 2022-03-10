@@ -89,7 +89,7 @@ const MainForm = ({navigation}) => {
             </View>
             <View style={formStyle.container}>
                 <Text style={formStyle.copyRight}>
-                    Copyright by Dhifaf @ 11940047
+                    Copyright by Dhifaf @ 119140047
                 </Text>
             </View>
         </View>

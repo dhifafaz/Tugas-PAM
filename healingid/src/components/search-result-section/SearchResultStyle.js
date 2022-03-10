@@ -72,6 +72,12 @@ const searchResultStyle = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-start',
     }, 
+    copyRight: {
+		zIndex: 1,
+		textAlign: 'center',
+		color: '#000',
+		margin: 20,
+	},
 });
 
 export default searchResultStyle;

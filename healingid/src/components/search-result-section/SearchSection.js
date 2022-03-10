@@ -138,6 +138,9 @@ const SearchSection = ({dataMaster}) => {
     return (
         <View style={searchResultStyle.resultContainer}>
             <RenderData/>
+                <Text style={searchResultStyle.copyRight}>
+                    Copyright by Dhifaf @ 119140047
+                </Text>
         </View>
     );
 };
