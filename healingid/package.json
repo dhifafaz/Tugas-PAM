@@ -30,6 +30,8 @@
     "react-test-renderer": "17.0.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    //"name": "Dhifaf athiyah zhabiyan",
+    //"nim": "119140047"
   }
 }
