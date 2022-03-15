@@ -79,6 +79,8 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
+    //"name": "Dhifaf athiyah zhabiyan",
+    //"nim": "119140047",
     enableHermes: false,  // clean and rebuild if changing
 ]
 
