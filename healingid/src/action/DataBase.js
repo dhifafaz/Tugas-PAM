@@ -1,3 +1,50 @@
+const BANDARA = [
+    {
+      bandara_id: 'B01',
+      bandara_nama: 'Raden Intan', 
+    },
+    {
+      bandara_id: 'B02',
+      bandara_nama: 'Soekarno Hatta',
+    },
+    {
+      bandara_id: 'B03',
+      bandara_nama: 'Ahmad Yani',
+    },
+    {
+      bandara_id: 'B04',
+      bandara_nama: 'Supadio',
+    },
+    {
+      bandara_id: 'B05',
+      bandara_nama: 'Kuala Namu',
+    },
+    {
+      bandara_id: 'B06',
+      bandara_nama: 'Sam Ratulangi',
+    },
+    {
+      bandara_id: 'B07',
+      bandara_nama: 'Sultan Mahmud Badaruddin II',
+    },
+    {
+      bandara_id: 'B08',
+      bandara_nama: 'Adisutjipto',
+    },
+    {
+      bandara_id: 'B09',
+      bandara_nama: 'Sultan Hasanuddin',
+    },
+    {
+      bandara_id: 'B10',
+      bandara_nama: 'Juanda',
+    },
+    {
+      bandara_id: 'B11',
+      bandara_nama: 'Ngurah Rai',
+    },
+];
+
 const MASKAPAI = [
     {
       maskapai_id: "F01",
@@ -51,167 +98,120 @@ const MASKAPAI = [
     },
     ];
 
-const BANDARA = [
-    {
-      bandara_id: 'B01',
-      bandara_nama: 'Raden Intan', 
-    },
-    {
-      bandara_id: 'B02',
-      bandara_nama: 'Soekarno Hatta',
-    },
-    {
-      bandara_id: 'B03',
-      bandara_nama: 'Ahmad Yani',
-    },
-    {
-      bandara_id: 'B04',
-      bandara_nama: 'Supadio',
-    },
-    {
-      bandara_id: 'B05',
-      bandara_nama: 'Kuala Namu',
-    },
-    {
-      bandara_id: 'B06',
-      bandara_nama: 'Sam Ratulangi',
-    },
-    {
-      bandara_id: 'B07',
-      bandara_nama: 'Sultan Mahmud Badaruddin II',
-    },
-    {
-      bandara_id: 'B08',
-      bandara_nama: 'Adisutjipto',
-    },
-    {
-      bandara_id: 'B09',
-      bandara_nama: 'Sultan Hasanuddin',
-    },
-    {
-      bandara_id: 'B10',
-      bandara_nama: 'Juanda',
-    },
-    {
-      bandara_id: 'B11',
-      bandara_nama: 'Ngurah Rai',
-    },
-];
-
 const JADWAL = [
     {
-      jadwal_id: "01",
+      jadwal_id: "J01",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B02",
       maskapai_id: "F01",
       tanggal: "2020-01-01",
     },
     {
-      jadwal_id: "02",
+      jadwal_id: "J02",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B02",
       maskapai_id: "F06",
       tanggal: "2020-01-01",
     },
     {
-      jadwal_id: "03",
+      jadwal_id: "J03",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F02",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "04",
+      jadwal_id: "J04",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F04",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "05",
+      jadwal_id: "J05",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B04",
       maskapai_id: "F03",
       tanggal: "2020-03-03",
     },
     {
-      jadwal_id: "06",
+      jadwal_id: "J06",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B05",
       maskapai_id: "F06",
       tanggal: "2020-03-03",
     },
     {
-      jadwal_id: "07",
+      jadwal_id: "J07",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F01",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "08",
+      jadwal_id: "J08",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F07",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "09",
+      jadwal_id: "J09",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F05",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "10",
+      jadwal_id: "J10",
       bandara_id_keberangkatan: "B01",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F08",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "11",
+      jadwal_id: "J11",
       bandara_id_keberangkatan: "B07",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F01",
       tanggal: "2020-02-03",
     },
     {
-      jadwal_id: "12",
+      jadwal_id: "J12",
       bandara_id_keberangkatan: "B11",
       bandara_id_kedatangan: "B08",
       maskapai_id: "F01",
       tanggal: "2020-02-02",
     },{
-      jadwal_id: "13",
+      jadwal_id: "J13",
       bandara_id_keberangkatan: "B09",
       bandara_id_kedatangan: "B11",
       maskapai_id: "F02",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "14",
+      jadwal_id: "J14",
       bandara_id_keberangkatan: "B09",
       bandara_id_kedatangan: "B11",
       maskapai_id: "F08",
       tanggal: "2020-02-02",
     },
     {
-      jadwal_id: "15",
+      jadwal_id: "J15",
       bandara_id_keberangkatan: "B07",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F01",
       tanggal: "2020-02-03",
     },
     {
-      jadwal_id: "16",
+      jadwal_id: "J16",
       bandara_id_keberangkatan: "B07",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F02",
       tanggal: "2020-02-03",
     },
     {
-      jadwal_id: "17",
+      jadwal_id: "J17",
       bandara_id_keberangkatan: "B07",
       bandara_id_kedatangan: "B03",
       maskapai_id: "F09",
@@ -219,4 +219,4 @@ const JADWAL = [
     },
   ];
 
-export {MASKAPAI, BANDARA, JADWAL};
+export {BANDARA,MASKAPAI, JADWAL};
