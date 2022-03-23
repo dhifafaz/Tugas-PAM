@@ -26,19 +26,19 @@ const BottomBar = ({}) => {
     return (
         <NavigationContainer>
             <Modal
-            animationType="fade"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-                Alert.alert("Modal has been closed.");
-                setModalVisible(!modalVisible);
-            }}
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    setModalVisible(!modalVisible);
+                }}
             >
                 <TouchableWithoutFeedback 
                     onPress={() => setModalVisible(!modalVisible)}
                 >
                     <View style={bottBarStyle.centeredView}>
-                        <View style={bottBarStyle.modalView}>
+                        <View style={bottBarStyle.modalCard}>
                             <Text 
                                 style={bottBarStyle.modalTitle}
                             >
@@ -107,69 +107,91 @@ const BottomBar = ({}) => {
                         </View>
                     </View>
                 </TouchableWithoutFeedback>
-            
             </Modal>
-		<Tab.Navigator
-			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused, color, size }) => {
-					let iconName;
-					let iconSize;
-					if (route.name === 'Beranda') {
-						iconName = focused
-							? 'home'
-							: 'home-outline';
-						iconSize = focused ? 30 : 25;
-					} else if (route.name === 'Daftar Pesanan') {
-						iconName = focused 
-						? 'md-bookmarks' 
-						: 'md-bookmarks-outline';
-						iconSize = focused ? 30 : 25;
-					} else if (route.name === 'Daftar Pembatalan') {
-						iconName = focused
-						? 'close'
-						: 'close-outline';
-						iconSize = focused ? 30 : 25;
-					} else if (route.name === 'Lainnya') {
-						iconName = focused
-						? 'list'
-						: 'list-outline';
-						iconSize = focused ? 30 : 25;
-					}
-					// Return komponen apapun kesini
-					return <Ionicons name={iconName} size={iconSize} color={color} />;
-				},
-				tabBarActiveTintColor: 'orange',
-				tabBarInactiveTintColor: 'gray',
-				tabBarStyle: {
-					height: 60,
-				}
-			})}
-			initialRouteName="Beranda"
-		>
-			<Tab.Screen 
-				options={{headerShown: false}}
-				name="Beranda" 
-				component={SubRouteHome} />
-			<Tab.Screen 
-				name="Daftar Pesanan" 
-				component={PesananScreen} />
-			<Tab.Screen 
-				name="Daftar Pembatalan" 
-				component={PembatalanScreen} />
-			<Tab.Screen 
-				options={{headerShown: false}}
-				name="Lainnya" 
-                listeners={() => ({
-                    tabPress: (e) => {
-                        e.preventDefault();
-                        // alert('Lainnya');
-                        // navigation.navigate('CustomModal');
-                        setModalVisible(true);
-                        // focused = true;
+
+            <Tab.Navigator
+                screenOptions={({ route }) => ({
+                    tabBarIcon: ({ focused, color, size }) => {
+                        let iconName;
+                        let iconSize;
+                        if (route.name === 'Beranda') {
+                            iconName = focused
+                                ? 'home'
+                                : 'home-outline';
+                            iconSize = focused ? 30 : 25;
+                        } else if (route.name === 'Daftar Pesanan') {
+                            iconName = focused 
+                            ? 'ios-journal' 
+                            : 'ios-journal-outline';
+                            iconSize = focused ? 30 : 25;
+                        } else if (route.name === 'Daftar Pembatalan') {
+                            iconName = focused
+                            ? 'close'
+                            : 'close-outline';
+                            iconSize = focused ? 30 : 25;
+                        } else if (route.name === 'Lainnya') {
+                            iconName = focused
+                            ? 'list'
+                            : 'list-outline';
+                            iconSize = focused ? 30 : 25;
+                        }
+                        // Return komponen apapun kesini
+                        return <Ionicons name={iconName} size={iconSize} color={color} />;
                     },
+                    tabBarActiveTintColor: 'orange',
+                    tabBarInactiveTintColor: 'gray',
+                    tabBarStyle: {
+                        height: 60,
+                    }
                 })}
-				component={LainnyaScreen} />
-		</Tab.Navigator>
+                initialRouteName="Beranda"
+            >
+                <Tab.Screen 
+                    options={{headerShown: false}}
+                    name="Beranda" 
+                    component={SubRouteHome} />
+                <Tab.Screen 
+                    options={{
+                        headerStyle: {
+                            backgroundColor: 'orange',
+                        },
+                        headerTintColor: '#fff',
+                        headerTitleStyle: {
+                            fontWeight: 'bold',
+                            alignItems: 'center',
+                        },
+                        headerTitleAlign: 'center',
+                    }}
+                    name="Daftar Pesanan" 
+                    component={PesananScreen} />
+                <Tab.Screen 
+                    options={{
+                        headerStyle: {
+                            backgroundColor: 'orange',
+                        },
+                        headerTintColor: '#fff',
+                        headerTitleStyle: {
+                            fontWeight: 'bold',
+                            alignItems: 'center',
+                        },
+                        headerTitleAlign: 'center',
+                    }}
+                    name="Daftar Pembatalan" 
+                    component={PembatalanScreen} />
+                <Tab.Screen 
+                    options={{headerShown: false}}
+                    name="Lainnya" 
+                    listeners={() => ({
+                        tabPress: (e) => {
+                            e.preventDefault();
+                            // alert('Lainnya');
+                            // navigation.navigate('CustomModal');
+                            setModalVisible(true);
+                            // focused = true;
+                        },
+                    })}
+                    component={LainnyaScreen} />
+            </Tab.Navigator>
         </NavigationContainer>
     );
 };

@@ -7,7 +7,7 @@ const bottBarStyle = StyleSheet.create({
         alignItems: "center",
         marginTop: 22
     },
-    modalView: {
+    modalCard: {
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
