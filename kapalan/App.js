@@ -22,28 +22,32 @@ const App = () => {
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused, color, size }) => {
 					let iconName;
-		
+					let iconSize;
 					if (route.name === 'Beranda') {
 						iconName = focused
 							? 'home'
 							: 'home-outline';
+						iconSize = focused ? 30 : 25;
 					} else if (route.name === 'Pesanan') {
 						iconName = focused 
 						? 'md-bookmarks' 
 						: 'md-bookmarks-outline';
+						iconSize = focused ? 30 : 25;
 					} else if (route.name === 'Pembatalan') {
 						iconName = focused
-						? 'md-book'
-						: 'md-book-outline';
+						? 'close'
+						: 'close-outline';
+						iconSize = focused ? 30 : 25;
 					} else if (route.name === 'Lainnya') {
 						iconName = focused
 						? 'list'
 						: 'list-outline';
+						iconSize = focused ? 30 : 25;
 					}
 					// Return komponen apapun kesini
-					return <Ionicons name={iconName} size={size} color={color} />;
+					return <Ionicons name={iconName} size={iconSize} color={color} />;
 				},
-				tabBarActiveTintColor: 'tomato',
+				tabBarActiveTintColor: 'orange',
 				tabBarInactiveTintColor: 'gray',
 				tabBarStyle: {
 					height: 60,
