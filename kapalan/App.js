@@ -1,112 +1,75 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 
 import React from 'react';
-import type {Node} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
+	View,
+	Text,
 } from 'react-native';
+import BerandaScreen from './src/screen/Beranda/Beranda';
+import PesananScreen from './src/screen/Pesanan/Pesanan';
+import PembatalanScreen from './src/screen/Pembatalan/Pembatalan';
+import LainnyaScreen from './src/screen/Lainnya/Lainnya';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const Tab = createBottomTabNavigator();
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+const App = () => {
+
+	return (
+		<NavigationContainer>
+		<Tab.Navigator
+			screenOptions={({ route }) => ({
+				tabBarIcon: ({ focused, color, size }) => {
+					let iconName;
+		
+					if (route.name === 'Beranda') {
+						iconName = focused
+							? 'home'
+							: 'home-outline';
+					} else if (route.name === 'Pesanan') {
+						iconName = focused 
+						? 'md-bookmarks' 
+						: 'md-bookmarks-outline';
+					} else if (route.name === 'Pembatalan') {
+						iconName = focused
+						? 'md-book'
+						: 'md-book-outline';
+					} else if (route.name === 'Lainnya') {
+						iconName = focused
+						? 'list'
+						: 'list-outline';
+					}
+					// Return komponen apapun kesini
+					return <Ionicons name={iconName} size={size} color={color} />;
+				},
+				tabBarActiveTintColor: 'tomato',
+				tabBarInactiveTintColor: 'gray',
+				tabBarStyle: {
+					height: 60,
+				}
+			})}
+			initialRouteName="Beranda"
+		>
+			<Tab.Screen 
+				options={{headerShown: false}}
+				name="Beranda" 
+				component={BerandaScreen} />
+			<Tab.Screen 
+				options={{headerShown: false}}
+				name="Pesanan" 
+				component={PesananScreen} />
+			<Tab.Screen 
+				options={{headerShown: false}}
+				name="Pembatalan" 
+				component={PembatalanScreen} />
+			<Tab.Screen 
+				options={{headerShown: false}}
+				name="Lainnya" 
+				component={LainnyaScreen} />
+		</Tab.Navigator>
+		</NavigationContainer>
+	);
 };
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
