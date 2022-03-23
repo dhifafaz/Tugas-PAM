@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const bottBarStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        minHeight: Math.round(windowHeight),
+    },
     centeredView: {
         flex: 1,
         justifyContent: "center",

@@ -15,7 +15,7 @@ function DetailsScreen({ navigation }) {
         <Text>Details Screen</Text>
         <Button
             title="Go to Details... again"
-            onPress={() => navigation.push('Beranda')}
+            onPress={() => navigation.push('SubBeranda')}
         />
         </View>
     );
@@ -24,7 +24,7 @@ function DetailsScreen({ navigation }) {
 const SubRouteHome = () => {
     return (
         <Stack.Navigator initialRouteName='Beranda' screenOptions={{headerShown: false}} >
-            <Stack.Screen name="Beranda" component={BerandaScreen} />
+            <Stack.Screen name="SubBeranda" component={BerandaScreen} />
             <Stack.Screen name="Details" component={DetailsScreen} />
         </Stack.Navigator>
 

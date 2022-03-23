@@ -24,6 +24,7 @@ const BottomBar = ({}) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
+        
         <NavigationContainer>
             <Modal
                 animationType="fade"
@@ -142,7 +143,8 @@ const BottomBar = ({}) => {
                     tabBarInactiveTintColor: 'gray',
                     tabBarStyle: {
                         height: 60,
-                    }
+                    },
+                    tabBarHideOnKeyboard: true
                 })}
                 initialRouteName="Beranda"
             >

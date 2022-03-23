@@ -15,11 +15,8 @@ const BerandaScreen = ({navigation}) => {
             style={berandaStyles.container}
         >
             <Text>Beranda</Text>
-            <TicketForm/>
-                <Button
-                title="Go to Details"
-                onPress={() => navigation.navigate('Details')}
-            />
+            <TicketForm navigation={navigation}/>
+               
         </View>
 
     );

@@ -5,8 +5,9 @@ const berandaStyles = StyleSheet.create({
         backgroundColor: 'red',
         alignItems: 'center',
         justifyContent: 'center',
-        // height: '100%',
         flex: 1,
+        paddingLeft: 30,
+        paddingRight: 30,
     },
 
 })
