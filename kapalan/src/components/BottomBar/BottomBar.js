@@ -7,21 +7,22 @@ import {
     TouchableWithoutFeedback,
     Pressable,
 } from "react-native";
-import BerandaScreen from '../../screen/Beranda/Beranda'
-import PesananScreen from '../../screen/Pesanan/Pesanan'
-import PembatalanScreen from '../../screen/Pembatalan/Pembatalan'
-import LainnyaScreen from '../../screen/Lainnya/Lainnya'
+import PesananScreen from '../../screen/Pesanan/Pesanan';
+import PembatalanScreen from '../../screen/Pembatalan/Pembatalan';
+import LainnyaScreen from '../../screen/Lainnya/Lainnya';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import bottBarStyle from './BottomBarStyles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
+import SubRouteHome from "../../route/SubRouteHome";
 
 const Tab = createBottomTabNavigator();
 
-const BottomBar = ({navigation}) => {
+const BottomBar = ({}) => {
     const [modalVisible, setModalVisible] = useState(false);
+
     return (
         <NavigationContainer>
             <Modal
@@ -148,7 +149,7 @@ const BottomBar = ({navigation}) => {
 			<Tab.Screen 
 				options={{headerShown: false}}
 				name="Beranda" 
-				component={BerandaScreen} />
+				component={SubRouteHome} />
 			<Tab.Screen 
 				name="Daftar Pesanan" 
 				component={PesananScreen} />

@@ -1,40 +1,27 @@
 import React from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
     Text,
-    useColorScheme,
     View,
+    Button,
 } from 'react-native';
-import {
-    Colors,
-} from 'react-native/Libraries/NewAppScreen';
-// import berandaStyles from './BerandaStyles';
+import berandaStyles from './BerandaStyles';
+import TicketForm from '../../components/TicketForm/TicketForm';
 
-const BerandaScreen = () => {
-    const isDarkMode = useColorScheme() === 'dark';
-
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
+const BerandaScreen = ({navigation}) => {
 
     return (
-        <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={backgroundStyle}>
-            <View
-                style={{
-                backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-                <View>
-                    <Text>Beranda</Text>
-                </View>
-            </View>
-        </ScrollView>
-        </SafeAreaView>
+        
+        <View 
+            style={berandaStyles.container}
+        >
+            <Text>Beranda</Text>
+            <TicketForm/>
+                <Button
+                title="Go to Details"
+                onPress={() => navigation.navigate('Details')}
+            />
+        </View>
+
     );
 };
 
