@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const berandaStyles = StyleSheet.create({
     container: {
-        backgroundColor: 'red',
+        backgroundColor: 'transparent',
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,

@@ -3,13 +3,12 @@ import { StyleSheet } from 'react-native';
 const bottBarStyle = StyleSheet.create({
     container: {
         flex: 1,
-        minHeight: Math.round(windowHeight),
     },
     centeredView: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22
+        backgroundColor: 'rgba(0,0,0,0.5)',
     },
     modalCard: {
         margin: 20,
@@ -46,6 +45,7 @@ const bottBarStyle = StyleSheet.create({
         fontSize: 40,
         fontFamily: 'Ubuntu-Bold',
         marginBottom: 5,
+        color: 'orange',
         width: '100%',
         textAlign: 'center',
     },  

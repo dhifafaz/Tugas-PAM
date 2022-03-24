@@ -14,7 +14,6 @@ const BerandaScreen = ({navigation}) => {
         <View 
             style={berandaStyles.container}
         >
-            <Text>Beranda</Text>
             <TicketForm navigation={navigation}/>
                
         </View>

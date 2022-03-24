@@ -104,7 +104,7 @@ const BottomBar = ({}) => {
                                 >
                                     Riwayat Pemesanan
                                 </Text>
-                            </Pressable>
+                            </Pressable>    
                         </View>
                     </View>
                 </TouchableWithoutFeedback>
