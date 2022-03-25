@@ -171,12 +171,12 @@ const ticketFormStyles = StyleSheet.create({
     },
     modalChoiseContainer: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
+        height: 200,
         backgroundColor: '#fff',
         borderRadius: 10,
         padding: 10,
         // height: "100%",
+        width: '100%',
     },
     choiseContainer: {
         flexDirection: 'column',
@@ -187,6 +187,7 @@ const ticketFormStyles = StyleSheet.create({
         borderColor: 'orange',
         borderWidth: 1,
         borderRadius: 10,
+
     },
     choisePelabuhanText: {
         fontSize: 18,

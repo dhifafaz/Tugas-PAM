@@ -12,7 +12,7 @@ const Invoice = ({data}) => {
         <View style={rincianTiketStyle.rincianTiketInvoice}>
                         <View style={rincianTiketStyle.rowContainer}>
                             <Text style={rincianTiketStyle.pelabuhanText}>
-                                {data.asal}
+                                {data.asalPelabuhan}
                             </Text>
                             <MaterialIcon
                                 name="arrow-right-alt"
@@ -20,7 +20,7 @@ const Invoice = ({data}) => {
                                 size={40}      
                             />
                             <Text style={rincianTiketStyle.pelabuhanText}>
-                                {data.tujuan}
+                                {data.pelabuhanTujuan}
                             </Text>
                         </View>
                         <View style={rincianTiketStyle.rowContainer}>
@@ -42,7 +42,7 @@ const Invoice = ({data}) => {
                                 </Text>
 
                                 <Text style={rincianTiketStyle.normalText}>
-                                    {data.layanan}
+                                    {data.kelas}
                                 </Text>
                             </View>
                         </View>
@@ -57,7 +57,7 @@ const Invoice = ({data}) => {
                                 Dewasa x 1
                             </Text>
                             <Text style={rincianTiketStyle.hargaText}>
-                                Rp {Harga.find((subItem) => subItem.kelas === data.layanan).harga},00
+                                Rp {Harga.find((subItem) => subItem.kelas === data.kelas).harga},00
                             </Text>
 
                         </View>

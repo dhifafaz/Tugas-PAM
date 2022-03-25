@@ -76,6 +76,7 @@ const TicketForm = ({navigation}) => {
         setModalVisibleClass(!modalVisibleClass);
     };
 
+    // console.log(text);
 
     return (
         
@@ -268,7 +269,7 @@ const TicketForm = ({navigation}) => {
             <View style={ticketFormStyles.buttonContainer}>
                 <Pressable
                     style={ticketFormStyles.button}
-                    onPress={() => navigation.navigate('Details', {data: text})}
+                    onPress={() => navigation.navigate('Rincian', {data: text})}
                 >
                     <Fontisto 
                         style={ticketFormStyles.searchIcon} 

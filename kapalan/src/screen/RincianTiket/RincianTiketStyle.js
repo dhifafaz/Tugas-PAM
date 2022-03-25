@@ -44,10 +44,10 @@ const rincianTiketStyle = StyleSheet.create({
         elevation: 5,
         marginTop: 25,
     },
-    normalText: {
-        fontSize: 18,
-        fontFamily: 'Ubuntu-Medium',
-        marginBottom: 20,
+    titleText: {
+        fontSize: 16,
+        fontFamily: 'Ubuntu-Bold',
+        marginBottom: 10,
         width: '100%',
         textAlign: 'left',
         color: 'black',

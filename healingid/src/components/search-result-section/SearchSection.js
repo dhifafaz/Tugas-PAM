@@ -140,8 +140,6 @@ const SearchSection = ({dataMaster}) => {
             return DataNotFound();
         };
         return DataNotFound();
-            
-
     };
 
 

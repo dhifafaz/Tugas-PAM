@@ -8,11 +8,12 @@ import {
 } from 'react-native';
 import rincianTiketStyle from './RincianTiketStyle';
 import ticketFormStyles from '../../components/TicketForm/TicketFormStyles';
-import { Harga } from '../../static-db/data';
+import { Harga, Jadwal } from '../../static-db/data';
 import Invoice from '../../components/Invoice/Invoice';
+import Fontisto from 'react-native-vector-icons/Fontisto';
 
 const RincianTiket = ({ route, navigation })=> {
-    const { data } = route.params;
+    const { data  } = route.params;
 
     const DataNotFound = () => {
         return (
@@ -25,6 +26,7 @@ const RincianTiket = ({ route, navigation })=> {
     };
 
     const DataFound = (searchResult) => {
+        console.log(searchResult);
 
         return(
             <View style={rincianTiketStyle.rincianCard}>
@@ -35,17 +37,17 @@ const RincianTiket = ({ route, navigation })=> {
                         Kapalan
                     </Text>
                     <Text 
-                        style={rincianTiketStyle.normalText}
+                        style={rincianTiketStyle.titleText}
                     >
                         Kuota tersedia (10000)
                     </Text>
                     <Text 
-                        style={rincianTiketStyle.normalText}
+                        style={rincianTiketStyle.titleText}
                     >
                         Rincian Tiket
                     </Text>
 
-                    <Invoice data={data}/>
+                    <Invoice data={searchResult}/>
                     
                     <View 
                         style={rincianTiketStyle.rowContainer}
@@ -54,13 +56,12 @@ const RincianTiket = ({ route, navigation })=> {
                             Total
                         </Text>
                         <Text style={rincianTiketStyle.totalText}>
-                            Rp {Harga.find((subItem) => subItem.kelas === data.layanan).harga},00
+                            Rp {Harga.find((subItem) => subItem.kelas === searchResult.kelas).harga},00
                         </Text>
                     </View>
                     <View style={rincianTiketStyle.rowContainer}>
                     <Pressable
                         style={rincianTiketStyle.backButton}
-                        title="Go to Details... again"
                         onPress={() => navigation.goBack()}
                         
                     >
@@ -71,8 +72,7 @@ const RincianTiket = ({ route, navigation })=> {
 
                     <Pressable
                         style={rincianTiketStyle.nextButton}
-                        title="Go to Details... again"
-                        onPress={() => navigation.navigate('Pemesanan', {data: data})}
+                        onPress={() => navigation.navigate('InformasiPemesanan', {data: searchResult})}
                         
                     >
                         <Text style={rincianTiketStyle.nextButtonText}>
@@ -85,9 +85,45 @@ const RincianTiket = ({ route, navigation })=> {
         );
     };
 
+    function RenderData() {
+        if (data.asal !== '' || data.tujuan !== '' || data.tanggal !== '' || data.layanan !== '' || data.waktu !== '') {
+            const searchResult = Jadwal.filter(
+                item => item.asalPelabuhan === data.asal && item.pelabuhanTujuan 
+                === data.tujuan && item.tanggal === data.tanggal && item.kelas 
+                === data.layanan && item.waktu === data.waktu
+            );
+            // console.log(searchResult);
+            if (searchResult.length == "") {
+                return (
+                    <View style={rincianTiketStyle.itemContainer}>
+                        <Fontisto
+                            name="ship"
+                            color="orange"
+                        />
+                        <Text style={rincianTiketStyle.textDanger}>
+                            Maaf jadwal tidak ditemukan, tidak ada pelayaran yang tersedia.
+                            Silahkan pilih parameter keberangkatan lain...
+                        </Text>
+                    </View>
+                );
+            }
+            
+            // console.log(searchResult);
+            return DataFound(searchResult[0]);
+                
+            // };
+            // return DataNotFound();
+        };
+        return DataNotFound();
+    };
+
+    // console.log(route.params);
+    console.log(data.asal);
+
+
     return (
         <ScrollView contentContainerStyle={rincianTiketStyle.mainContainer}>
-            <DataFound/>
+            <RenderData/>
         </ScrollView>
     );
 };
