@@ -17,7 +17,7 @@ import ModalLayanan from '../CustomModalDropDown/ModalLayanan';
 const TicketForm = ({navigation}) => {
     moment.updateLocale('en', {
         weekdays : [
-            "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumm'at", "Sabtu"
+            "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"
         ]
     });
     moment.updateLocale('en', {
@@ -233,18 +233,37 @@ const TicketForm = ({navigation}) => {
                             style={ticketFormStyles.datePicker}
                         />
                     )}
-                    <Pressable 
-                        onPress={showPickerTime}
-                        style={ticketFormStyles.pickedDateContainer}
+                <Pressable 
+                    onPress={showPickerTime}
+                    style={ticketFormStyles.pickedDateContainer}
+                >
+                    <Text 
+                        onPress={showPickerTime} 
+                        style={ticketFormStyles.pickedDate}
                     >
-                        <Text 
-                            onPress={showPickerTime} 
-                            style={ticketFormStyles.pickedDate}
-                        >
-                            {text.waktu == "" ? "Silahkan Pilih Waktu" : text.waktu}
-                        </Text>
-                    </Pressable>
+                        {text.waktu == "" ? "Silahkan Pilih Waktu" : text.waktu}
+                    </Text>
+                </Pressable>
+            </View>
+
+            <View 
+                style={ticketFormStyles.formInput}
+            >
+                <View
+                    style={ticketFormStyles.rowContainer}
+                >
+                    <Text
+                        style={ticketFormStyles.customPlaceholderPeople}
+                    >
+                        Dewasa
+                    </Text>
+                    <Text
+                        style={ticketFormStyles.customPlaceholderTotal}
+                    >
+                        1 Orang
+                    </Text>
                 </View>
+            </View>
 
             <View style={ticketFormStyles.buttonContainer}>
                 <Pressable

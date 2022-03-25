@@ -15,6 +15,7 @@ const SubRouteHome = () => {
         <Stack.Navigator initialRouteName='Beranda' screenOptions={{headerShown: false}} >
             <Stack.Screen name="SubBeranda" component={BerandaScreen} />
             <Stack.Screen name="Details" component={RincianTiket} />
+            <Stack.Screen name="Details" component={RincianTiket} />
         </Stack.Navigator>
 
     );

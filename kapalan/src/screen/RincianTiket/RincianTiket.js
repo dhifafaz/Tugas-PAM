@@ -4,10 +4,12 @@ import {
     View,
     Button,
     ScrollView,
+    Pressable,
 } from 'react-native';
 import rincianTiketStyle from './RincianTiketStyle';
 import ticketFormStyles from '../../components/TicketForm/TicketFormStyles';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { Harga } from '../../static-db/data';
+import Invoice from '../../components/Invoice/Invoice';
 
 const RincianTiket = ({ route, navigation })=> {
     const { data } = route.params;
@@ -43,56 +45,41 @@ const RincianTiket = ({ route, navigation })=> {
                         Rincian Tiket
                     </Text>
 
-                    <View style={rincianTiketStyle.rincianTiketInvoice}>
-                        <View style={rincianTiketStyle.rowContainer}>
-                            <Text style={rincianTiketStyle.pelabuhanText}>
-                                {data.asal}
-                            </Text>
-                            <MaterialIcon
-                                name="arrow-right-alt"
-                                color="#000"     
-                                size={40}      
-                            />
-                            <Text style={rincianTiketStyle.pelabuhanText}>
-                                {data.tujuan}
-                            </Text>
-                        </View>
-                        <View style={rincianTiketStyle.rowContainer}>
-                            <View style={rincianTiketStyle.colContainer}>
-                                <Text style={rincianTiketStyle.h3Text}>
-                                    Jadwal Masuk Pelabuhan
-                                </Text>
-
-                                <Text style={rincianTiketStyle.notmalText}>
-                                    {data.tanggal}
-                                </Text>
-
-                                <Text style={rincianTiketStyle.notmalText}>
-                                    {data.waktu}
-                                </Text>
-
-                                <Text style={rincianTiketStyle.h3Text}>
-                                    Layanan
-                                </Text>
-
-                                <Text style={rincianTiketStyle.notmalText}>
-                                    {data.layanan}
-                                </Text>
-                            </View>
-                        </View>
-                        <View style={{flex:1, height:5, color:"white", borderRadius:10}}>
-
-                        </View>
-                        <Text 
-                                    style={{fontSize:20, color:'black'}}>
-                                    {data.asal + " " + data.tujuan + " " + data.tanggal + " " + data.waktu + " " + data.layanan}
-                                </Text>
-
+                    <Invoice data={data}/>
+                    
+                    <View 
+                        style={rincianTiketStyle.rowContainer}
+                    >
+                        <Text style={rincianTiketStyle.totalText}>
+                            Total
+                        </Text>
+                        <Text style={rincianTiketStyle.totalText}>
+                            Rp {Harga.find((subItem) => subItem.kelas === data.layanan).harga},00
+                        </Text>
                     </View>
-                <Button
-                    title="Go to Details... again"
-                    onPress={() => navigation.goBack()}
-                />
+                    <View style={rincianTiketStyle.rowContainer}>
+                    <Pressable
+                        style={rincianTiketStyle.backButton}
+                        title="Go to Details... again"
+                        onPress={() => navigation.goBack()}
+                        
+                    >
+                        <Text style={rincianTiketStyle.backButtonText}>
+                            Kembali
+                        </Text>
+                    </Pressable>
+
+                    <Pressable
+                        style={rincianTiketStyle.nextButton}
+                        title="Go to Details... again"
+                        onPress={() => navigation.navigate('Pemesanan', {data: data})}
+                        
+                    >
+                        <Text style={rincianTiketStyle.nextButtonText}>
+                            Lanjutkan
+                        </Text>
+                    </Pressable>
+                    </View>
                 </View>
             </View>
         );

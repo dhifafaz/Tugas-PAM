@@ -67,7 +67,10 @@ const ticketFormStyles = StyleSheet.create({
         borderColor: '#000',
         height: 45,
         borderRadius: 10,
-        margin: 5,
+        marginLeft: 5,
+        marginRight: 5,
+        marginBottom: 10,
+        marginTop: 5,
     },
     inputIcon: {
         fontSize: 25,
@@ -111,7 +114,10 @@ const ticketFormStyles = StyleSheet.create({
         borderColor: '#000',
         height: 45,
         borderRadius: 10,
-        margin: 5,
+        marginLeft: 5,
+        marginRight: 5,
+        marginBottom: 10,
+        marginTop: 5,
         flex: 0,
     },
     searchIcon: {
@@ -206,6 +212,36 @@ const ticketFormStyles = StyleSheet.create({
         width: '100%',
         paddingLeft: 10,
     },
+    rowContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+    },
+    customPlaceholderPeople: {
+        fontSize: 14,
+        fontWeight: '400',
+        color: 'black',
+        flex: 1,
+        height: '100%',
+        textAlignVertical: 'center',
+        textTransform: 'capitalize',
+        width: '50%',
+        marginLeft: 10,
+    },
+    customPlaceholderTotal: {
+        fontSize: 14,
+        fontWeight: '400',
+        color: 'black',
+        flex: 1,
+        height: '100%',
+        textAlignVertical: 'center',
+        textTransform: 'capitalize',
+        width: '50%',
+        marginRight: 10,
+        textAlign: 'right',
+    }
+
 });
 
 export default ticketFormStyles;

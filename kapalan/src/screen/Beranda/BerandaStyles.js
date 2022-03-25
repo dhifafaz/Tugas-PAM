@@ -4,10 +4,11 @@ const berandaStyles = StyleSheet.create({
     container: {
         backgroundColor: 'transparent',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         flex: 1,
         paddingLeft: 30,
         paddingRight: 30,
+        paddingTop: 45,
     },
 
 })
