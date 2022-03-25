@@ -6,26 +6,15 @@ import {
 } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BerandaScreen from '../screen/Beranda/Beranda';
+import RincianTiket from '../screen/RincianTiket/RincianTiket';
 
 const Stack = createNativeStackNavigator();
-
-function DetailsScreen({ navigation }) {
-    return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Details Screen</Text>
-        <Button
-            title="Go to Details... again"
-            onPress={() => navigation.push('SubBeranda')}
-        />
-        </View>
-    );
-}
 
 const SubRouteHome = () => {
     return (
         <Stack.Navigator initialRouteName='Beranda' screenOptions={{headerShown: false}} >
             <Stack.Screen name="SubBeranda" component={BerandaScreen} />
-            <Stack.Screen name="Details" component={DetailsScreen} />
+            <Stack.Screen name="Details" component={RincianTiket} />
         </Stack.Navigator>
 
     );

@@ -15,6 +15,17 @@ import ModalHarbour from '../CustomModalDropDown/ModalHarbour';
 import ModalLayanan from '../CustomModalDropDown/ModalLayanan';
 
 const TicketForm = ({navigation}) => {
+    moment.updateLocale('en', {
+        weekdays : [
+            "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumm'at", "Sabtu"
+        ]
+    });
+    moment.updateLocale('en', {
+        months : [
+            "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli",
+            "Agustus", "September", "Oktober", "November", "Desember"
+        ]
+    });
     const [text, onChangeText] = useState({
         asal: '',
         tujuan: '',
@@ -26,7 +37,7 @@ const TicketForm = ({navigation}) => {
     const handleTextChanges = (mytextname) => {
         return (val) => {
             onChangeText({ ...text, [mytextname]: val });
-            console.log(text);
+            // console.log(text);
         }
     }
 
@@ -48,18 +59,13 @@ const TicketForm = ({navigation}) => {
     
     const onChangeDate = (event, value) => {
         setIsPickerDate(false);
-        onChangeText({ ...text, tanggal: moment.utc(value).format('YYYY-MM-DD') });
+        onChangeText({ ...text, tanggal: moment.utc(value).locale('en').format('dddd, DD MMMM YYYY') });
         setDate(value);
-        console.log(moment(value).format('YYYY-MM-DD'));
-        console.log(text);
     };
     const onChangeTime = (event, value) => {
         setIsPickerTime(false);
-        onChangeText({ ...text, waktu: moment.utc(value).format('HH:mm') });
+        onChangeText({ ...text, waktu: moment.utc(value).format('HH:mm') + " " + "WIB" });
         setTime(value);
-        console.log(moment.utc(value).format('HH:mm'));
-        console.log(text);
-
     };
 
     const closeModalHarbour = () => {

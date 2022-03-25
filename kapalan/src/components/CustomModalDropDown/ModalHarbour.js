@@ -34,7 +34,7 @@ const ModalHarbour = (props) => {
                                 <Text 
                                     style={ticketFormStyles.modalTitle}
                                 >
-                                    Menu
+                                    Pilihan Pelabuhan
                                 </Text>
                             </View>
                             
