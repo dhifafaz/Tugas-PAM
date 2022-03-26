@@ -144,6 +144,7 @@ const BottomBar = ({}) => {
                     tabBarStyle: {
                         height: 60,
                     },
+                    unmountOnBlur: true,
                     tabBarHideOnKeyboard: true
                 })}
                 initialRouteName="Beranda"

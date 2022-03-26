@@ -1,99 +1,115 @@
 import React, {useState, useEffect} from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
     Text,
-    useColorScheme,
     View,
+    FlatList,
+    Pressable,
 } from 'react-native';
 import {
     Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import pesananStyles from './PesananStyles';
+import rincianTiketStyle from '../RincianTiket/RincianTiketStyle';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Harga } from '../../static-db/data';
 
 const PesananScreen = () => {
     const [retrieveData, setRetrieveData] = useState([]);
-    const isDarkMode = useColorScheme() === 'dark';
-
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    
+    const getData = async key => {
+        try {
+            const data = await AsyncStorage.getItem(key);
+            if (data !== null) {
+                console.log(data);
+                const jsonValue = JSON.parse(data);
+                setRetrieveData(jsonValue);
+            }
+        } catch (error) {
+            console.log(error);
+        }
     };
 
-    // let readData = async () => {
-    //     try{  
-    //         let fetchPemesanan = await AsyncStorage.getItem('pesanan');
-    //         let parsedPemesanan = fetchPemesanan != null ? JSON.parse(fetchPemesanan) : null;
-    //         setRetrieveData(parsedPemesanan);
-    //         console.log("Berhjasill")
-    //         console.log(fetchPemesanan);
-    //     }  
-    //     catch(e){  
-    //         alert(e)  
-    //     }
-    //     readData();
-    // }
+    const onScreenLoad = () => {
+        getData('pesanan-rev1');
+    }
 
     useEffect(() => {
-        const storage = async()=>{
-            let items = await AsyncStorage.getItem('pesanan');
-            let parsedItems = items != null ? JSON.parse(items) : null;
-            setRetrieveData(parsedItems);
-            console.log(items)
-        }
-        storage()
-    }, []);
+        onScreenLoad();
+    }, [])
+
+
+
     return (
-        <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <ScrollView
+        <View
             contentInsetAdjustmentBehavior="automatic"
-            style={backgroundStyle}>
-            <View
-                style={{
-                backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            }}>
-                <View style={{
-                    flex:1,
-                    height: '100%',
-                }}>
-                    <Text
-                        style={{
-                            marginTop: 20,
-                            color: "black",
-                            fontSize: 20,
-                            fontWeight: "bold",
-                        }}
-                    >{retrieveData.nama}</Text>
-                    <Text
-                        style={{
-                            marginTop: 20,
-                            color: "black",
-                            fontSize: 20,
-                            fontWeight: "bold",
-                        }}
-                    >{retrieveData.kelas}</Text>
-                    <Text
-                        style={{
-                            marginTop: 20,
-                            color: "black",
-                            fontSize: 20,
-                            fontWeight: "bold",
-                        }}
-                    >{retrieveData.asalPelabuhan}</Text>
-                    <Text
-                        style={{
-                            marginTop: 20,
-                            color: "black",
-                            fontSize: 20,
-                            fontWeight: "bold",
-                        }}
-                    >{retrieveData.uniqId}</Text>
-                </View>
-            </View>
-        </ScrollView>
-        </SafeAreaView>
+            style={{
+                paddingTop: 25,
+                paddingLeft: 25,
+                paddingRight: 25,
+            }}
+        >
+            <FlatList
+                data={retrieveData}
+                renderItem={({item}) => (
+                    <Pressable style={pesananStyles.rincianTiketInvoice}>
+                        <View style={rincianTiketStyle.rowContainer}>
+                            <Text style={rincianTiketStyle.pelabuhanText}>
+                                {item.asalPelabuhan}
+                            </Text>
+                            <MaterialIcon
+                                name="arrow-right-alt"
+                                color="#000"     
+                                size={40}      
+                            />
+                            <Text style={rincianTiketStyle.pelabuhanText}>
+                                {item.pelabuhanTujuan}
+                            </Text>
+                        </View>
+                        <View style={rincianTiketStyle.rowContainer}>
+                            <View style={rincianTiketStyle.colContainer}>
+                                <Text style={rincianTiketStyle.h3Text}>
+                                    Jadwal Masuk Pelabuhan
+                                </Text>
+
+                                <Text style={rincianTiketStyle.normalText}>
+                                    {item.tanggal}
+                                </Text>
+
+                                <Text style={rincianTiketStyle.normalText}>
+                                    {item.waktu}
+                                </Text>
+
+                                <Text style={rincianTiketStyle.h3Text}>
+                                    Layanan
+                                </Text>
+
+                                <Text style={rincianTiketStyle.normalText}>
+                                    {item.kelas}
+                                </Text>
+                            </View>
+                        </View>
+                        <View style={{flex:1, flexDirection: 'row', marginTop: 5 }}>
+                            <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+                            <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+                        </View>
+                        <View
+                            style={rincianTiketStyle.rowContainer}
+                        >
+                            <Text style={rincianTiketStyle.layananText}>
+                                Dewasa x 1
+                            </Text>
+                            <Text style={rincianTiketStyle.hargaText}>
+                                Rp {item.harga},00
+                            </Text>
+
+                        </View>
+                    </Pressable>
+                )}
+                keyExtractor={item => item.uniqId}
+            />
+        </View>
+
     );
 };
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     View,
     Text,
@@ -14,8 +14,9 @@ import Invoice from '../../components/Invoice/Invoice';
 import ticketFormStyles from '../../components/TicketForm/TicketFormStyles';
 import bottBarStyle from '../../components/BottomBar/BottomBarStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Harga } from '../../static-db/data';
 
-const InformasiPemesanan = ({ route, navigation }) => {
+const InformasiPemesanan = ({ route, navigation, onChangeText }) => {
     const { data } = route.params;
     
     const [identitas, setIdentitas] = useState({
@@ -23,6 +24,7 @@ const InformasiPemesanan = ({ route, navigation }) => {
         nama: '',
         kelamin: '',
         umur: '',
+        harga: '',
     });
 
     function createId() {
@@ -45,14 +47,45 @@ const InformasiPemesanan = ({ route, navigation }) => {
     const storeData = async (value) => {
         try {
             const jsonValue = JSON.stringify(value)
-            await AsyncStorage.setItem('pesanan', jsonValue)
+            await AsyncStorage.setItem('pesanan-rev1', jsonValue)
         } catch (e) {
-          // saving error
+            console.log(error);
         }
         console.log(value);
         console.log("Done!");
     }
 
+    const [retrieveData, setRetrieveData] = useState([]);
+    
+    const getData = async key => {
+        try {
+            const data = await AsyncStorage.getItem(key);
+            if (data !== null) {
+                console.log(data);
+                const jsonValue = JSON.parse(data);
+                setRetrieveData(jsonValue);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const onScreenLoad = () => {
+        getData('pesanan-rev1');
+        const id = createId();
+        setIdentitas({...identitas, uniqId: id});
+    }
+
+    useEffect(() => {
+        onScreenLoad();
+    }, [])
+
+    const historyOrder = [...retrieveData];
+    // historyOrde = retrieveData;
+    historyOrder.push(pesanan); 
+
+    console.log("Ini history order" );
+    console.log(historyOrder);
 
     return(
         <ScrollView contentContainerStyle={informasiPemesananStyle.mainContainer}>
@@ -98,7 +131,7 @@ const InformasiPemesanan = ({ route, navigation }) => {
 
                                 <Pressable
                                     onPress={()=> {
-                                        storeData(pesanan);
+                                        storeData(historyOrder);
                                         setTimeout(() => {
                                             setModalVisible(!modalVisible);
                                             navigation.navigate('Daftar Pesanan');
@@ -181,13 +214,15 @@ const InformasiPemesanan = ({ route, navigation }) => {
                             style={rincianTiketStyle.nextButton}
                             onPress={() => {
                                 setModalVisible(true);
-                                    
-                                setIdentitas({...identitas, uniqId: id});
+                                setTimeout(() => {
+                                    const price = Harga.find((subItem) => subItem.kelas === data.kelas).harga;
+                                    setIdentitas({...identitas, harga: price});
+                                }, 500);
                             }}
                             
                         >
                             <Text style={rincianTiketStyle.nextButtonText}>
-                                Lanjutkan
+                                Submit
                             </Text>
                         </Pressable>
                     </View>

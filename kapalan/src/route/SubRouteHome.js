@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 
 const SubRouteHome = () => {
     return (
-        <Stack.Navigator initialRouteName='Beranda' screenOptions={{headerShown: false}} >
+        <Stack.Navigator initialRouteName='SubBeranda' screenOptions={{headerShown: false}} >
             <Stack.Screen name="SubBeranda" component={BerandaScreen} />
             <Stack.Screen name="Rincian" component={RincianTiket} />
             <Stack.Screen name="InformasiPemesanan" component={InformasiPemesanan} />

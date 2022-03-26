@@ -31,7 +31,7 @@ const Jadwal = [
         asalPelabuhan: 'bakauheni',
         pelabuhanTujuan: 'merak',
         kelas: 'reguler',
-        tanggal: "Kamis, 01 April 2022",
+        tanggal: "Jum'at, 01 April 2022",
         waktu: '10:00 WIB',
         kuota: 360,
     },
