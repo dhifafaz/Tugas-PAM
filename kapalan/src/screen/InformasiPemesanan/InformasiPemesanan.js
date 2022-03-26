@@ -13,6 +13,7 @@ import rincianTiketStyle from '../RincianTiket/RincianTiketStyle';
 import Invoice from '../../components/Invoice/Invoice';
 import ticketFormStyles from '../../components/TicketForm/TicketFormStyles';
 import bottBarStyle from '../../components/BottomBar/BottomBarStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const InformasiPemesanan = ({ route, navigation }) => {
     const { data } = route.params;
@@ -40,6 +41,18 @@ const InformasiPemesanan = ({ route, navigation }) => {
             console.log(identitas);
         }
     }
+
+    const storeData = async (value) => {
+        try {
+            const jsonValue = JSON.stringify(value)
+            await AsyncStorage.setItem('pesanan', jsonValue)
+        } catch (e) {
+          // saving error
+        }
+        console.log(value);
+        console.log("Done!");
+    }
+
 
     return(
         <ScrollView contentContainerStyle={informasiPemesananStyle.mainContainer}>
@@ -85,7 +98,12 @@ const InformasiPemesanan = ({ route, navigation }) => {
 
                                 <Pressable
                                     onPress={()=> {
-                                        setModalVisible(!modalVisible);
+                                        storeData(pesanan);
+                                        setTimeout(() => {
+                                            setModalVisible(!modalVisible);
+                                            navigation.navigate('Daftar Pesanan');
+                                        }, 500);
+                                        
                                     }}
                                     style={informasiPemesananStyle.nextButtonText}
                                 >
@@ -163,7 +181,7 @@ const InformasiPemesanan = ({ route, navigation }) => {
                             style={rincianTiketStyle.nextButton}
                             onPress={() => {
                                 setModalVisible(true);
-                                const id = createId();
+                                    
                                 setIdentitas({...identitas, uniqId: id});
                             }}
                             

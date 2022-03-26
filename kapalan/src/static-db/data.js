@@ -6,6 +6,7 @@ const Jadwal = [
         kelas: 'reguler',
         tanggal: "Jum'at, 25 Maret 2022",
         waktu: '14:00 WIB',
+        kuota: 400,
     },
     {
         idJadwal: 2,
@@ -14,6 +15,7 @@ const Jadwal = [
         kelas: 'eksekutif',
         tanggal: "Jum'at, 25 Maret 2022",
         waktu: '14:00 WIB',
+        kuota: 200,
     },
     {
         idJadwal: 3,
@@ -22,6 +24,7 @@ const Jadwal = [
         kelas: 'bisnis',
         tanggal: "Jum'at, 25 Maret 2022",
         waktu: '14:25 WIB',
+        kuota: 100,
     },
     {
         idJadwal: 4,
@@ -30,6 +33,7 @@ const Jadwal = [
         kelas: 'reguler',
         tanggal: "Kamis, 01 April 2022",
         waktu: '10:00 WIB',
+        kuota: 360,
     },
     {
         idJadwal: 5,
@@ -38,6 +42,7 @@ const Jadwal = [
         kelas: 'eksekutif',
         tanggal: "Kamis, 01 April 2022",
         waktu: '10:00 WIB',
+        kuota: 160,
     },
     {
         idJadwal: 6,
@@ -46,6 +51,7 @@ const Jadwal = [
         kelas: 'bisnis',
         tanggal: "Kamis, 01 April 2022",
         waktu: '10:25 WIB',
+        kuota: 120,
     },
 ]
 

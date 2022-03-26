@@ -39,7 +39,7 @@ const RincianTiket = ({ route, navigation })=> {
                     <Text 
                         style={rincianTiketStyle.titleText}
                     >
-                        Kuota tersedia (10000)
+                        Kuota tersedia ({searchResult.kuota})
                     </Text>
                     <Text 
                         style={rincianTiketStyle.titleText}
