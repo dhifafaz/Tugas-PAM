@@ -4,23 +4,100 @@ import {
     Text,
     TextInput,
     Pressable,
+    Modal,
     ScrollView,
+    TouchableWithoutFeedback,
 } from 'react-native';
 import informasiPemesananStyle from './InformasiPemesananStyle';
 import rincianTiketStyle from '../RincianTiket/RincianTiketStyle';
 import Invoice from '../../components/Invoice/Invoice';
 import ticketFormStyles from '../../components/TicketForm/TicketFormStyles';
+import bottBarStyle from '../../components/BottomBar/BottomBarStyles';
 
 const InformasiPemesanan = ({ route, navigation }) => {
     const { data } = route.params;
+    
     const [identitas, setIdentitas] = useState({
+        uniqId: '',
         nama: '',
         kelamin: '',
         umur: '',
     });
 
+    function createId() {
+        return Math.floor(Date.now() * Math.random());
+    }
+
+    const pesanan = {...data, ...identitas};
+
+    console.log(pesanan);
+
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const handleTextChanges = (mytextname) => {
+        return (val) => {
+            setIdentitas({ ...identitas, [mytextname]: val });
+            console.log(identitas);
+        }
+    }
+
     return(
-        <ScrollView contentContainerStyle={rincianTiketStyle.mainContainer}>
+        <ScrollView contentContainerStyle={informasiPemesananStyle.mainContainer}>
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <TouchableWithoutFeedback 
+                    onPress={() => setModalVisible(!modalVisible)}
+                >
+                    <View style={bottBarStyle.centeredView}>
+                        <View style={ticketFormStyles.modalChoise}>
+                            <View 
+                                style={ticketFormStyles.headerModalContainer}
+                            >
+                                <Text 
+                                    style={ticketFormStyles.modalTitle}
+                                >
+                                    Pembayaran
+                                </Text>
+                            </View>
+                            
+                            <View
+                                style={informasiPemesananStyle.modalBodyContainer}
+                            >
+                                <Text style={informasiPemesananStyle.titleText}>
+                                    Pembayaran dapat dilakukan melalui transfer bank ke rekening berikut
+                                </Text>
+                                <Text style={informasiPemesananStyle.titleText}>
+                                    119140047
+                                </Text>
+                                <Text style={informasiPemesananStyle.titleText}>
+                                    a.n. Dhifaf Athiyah Zhabiyan
+                                </Text>
+                                <Text style={informasiPemesananStyle.titleText}>
+                                    BANK CIHUY
+                                </Text>
+
+                                <Pressable
+                                    onPress={()=> {
+                                        setModalVisible(!modalVisible);
+                                    }}
+                                    style={informasiPemesananStyle.nextButtonText}
+                                >
+                                    <Text style={rincianTiketStyle.nextButtonText}>
+                                        Selesai
+                                    </Text>
+                                </Pressable>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableWithoutFeedback>
+            </Modal>
             <View style={rincianTiketStyle.rincianCard}>
                 <View style={rincianTiketStyle.rincianCardHeader}>
                     <Text 
@@ -38,12 +115,35 @@ const InformasiPemesanan = ({ route, navigation }) => {
                         <Text style={rincianTiketStyle.titleText}>
                             Data Pemesan
                         </Text>
-                        <Text >
+
+                        <Text style={ticketFormStyles.inputLabel    }>
                             Nama Lengkap
                         </Text>
                         <TextInput
                             placeholder='Masukkan Nama Lengkap'
                             placeholderTextColor="black"
+                            onChangeText={handleTextChanges('nama')}
+                            style={informasiPemesananStyle.formInput}>
+                        </TextInput>
+
+                        <Text style={ticketFormStyles.inputLabel    }>
+                            Jenis Kelamin
+                        </Text>
+                        <TextInput
+                            placeholder='Jenis Kelamin'
+                            placeholderTextColor="black"
+                            onChangeText={handleTextChanges('kelamin')}
+                            style={informasiPemesananStyle.formInput}>
+
+                        </TextInput>
+
+                        <Text style={ticketFormStyles.inputLabel    }>
+                            Umur
+                        </Text>
+                        <TextInput
+                            placeholder='Umur Anda'
+                            placeholderTextColor="black"
+                            onChangeText={handleTextChanges('umur')}
                             style={informasiPemesananStyle.formInput}>
 
                         </TextInput>
@@ -61,7 +161,11 @@ const InformasiPemesanan = ({ route, navigation }) => {
 
                         <Pressable
                             style={rincianTiketStyle.nextButton}
-                            onPress={() => navigation.navigate('InformasiPemesanan', {data: data})}
+                            onPress={() => {
+                                setModalVisible(true);
+                                const id = createId();
+                                setIdentitas({...identitas, uniqId: id});
+                            }}
                             
                         >
                             <Text style={rincianTiketStyle.nextButtonText}>

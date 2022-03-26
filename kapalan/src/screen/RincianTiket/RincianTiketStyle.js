@@ -22,7 +22,7 @@ const rincianTiketStyle = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: 30,
         paddingRight: 30,
-        paddingTop: 45,
+        paddingTop: 25,
         // paddingBottom: 30,
     },
     rincianCard: {

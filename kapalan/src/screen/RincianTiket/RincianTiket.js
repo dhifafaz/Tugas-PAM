@@ -26,7 +26,7 @@ const RincianTiket = ({ route, navigation })=> {
     };
 
     const DataFound = (searchResult) => {
-        console.log(searchResult);
+        // console.log(searchResult);
 
         return(
             <View style={rincianTiketStyle.rincianCard}>
