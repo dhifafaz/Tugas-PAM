@@ -5,16 +5,12 @@ import {
     FlatList,
     Pressable,
 } from 'react-native';
-import {
-    Colors,
-} from 'react-native/Libraries/NewAppScreen';
 import pesananStyles from './PesananStyles';
 import rincianTiketStyle from '../RincianTiket/RincianTiketStyle';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Harga } from '../../static-db/data';
 
-const PesananScreen = () => {
+const PesananScreen = ({navigation}) => {
     const [retrieveData, setRetrieveData] = useState([]);
     
     const getData = async key => {
@@ -38,6 +34,9 @@ const PesananScreen = () => {
         onScreenLoad();
     }, [])
 
+    const orderList = retrieveData.filter( (item) => {
+        return item.status == 'terjadwal'
+    })
 
 
     return (
@@ -50,9 +49,11 @@ const PesananScreen = () => {
             }}
         >
             <FlatList
-                data={retrieveData}
+                data={orderList}
                 renderItem={({item}) => (
-                    <Pressable style={pesananStyles.rincianTiketInvoice}>
+                    <Pressable 
+                        onPress={() => navigation.navigate('DetailPesanan', {data: item.uniqId})}
+                        style={pesananStyles.rincianTiketInvoice}>
                         <View style={rincianTiketStyle.rowContainer}>
                             <Text style={rincianTiketStyle.pelabuhanText}>
                                 {item.asalPelabuhan}

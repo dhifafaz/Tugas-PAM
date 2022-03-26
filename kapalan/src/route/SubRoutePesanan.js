@@ -5,14 +5,14 @@ import DetailPesanan from '../screen/DetailPesanan/DetailPesanan';
 
 const Stack = createNativeStackNavigator();
 
-const SubRouteHome = () => {
+const SubRoutePesanan = () => {
     return (
         <Stack.Navigator initialRouteName='SubPesanan' screenOptions={{headerShown: false}} >
             <Stack.Screen name="SubPesanan" component={PesananScreen} />
-            <Stack.Screen name="Detail Pesanan" component={DetailPesanan} />
+            <Stack.Screen name="DetailPesanan" component={DetailPesanan} />
         </Stack.Navigator>
 
     );
 };
 
-export default SubRouteHome;
+export default SubRoutePesanan;

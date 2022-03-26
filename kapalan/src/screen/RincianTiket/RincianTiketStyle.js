@@ -8,9 +8,10 @@ const rincianTiketStyle = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         elevation: 2,
+        alignItems: 'center',
     },
     textDanger: {
-        fontSize: 15,
+        fontSize: 25,
         fontWeight: '700',
         color: 'red',
         textAlign: 'center',

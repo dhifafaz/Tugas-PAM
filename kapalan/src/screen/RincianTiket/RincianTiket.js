@@ -18,6 +18,17 @@ const RincianTiket = ({ route, navigation })=> {
     const DataNotFound = () => {
         return (
             <View style={rincianTiketStyle.itemContainer}>
+                <Fontisto 
+                    style={{
+                        fontSize: 200,
+                        padding: 10,
+                        alignContent: 'center',
+                        justifyContent: 'center',
+                        width: '100%',
+                        textAlign: 'center',
+                    }} 
+                    name="ship" color="orange"
+                />
                 <Text style={rincianTiketStyle.textDanger}>
                     Maaf data tidak ditemukan, silahkan cek kembali lokasi keberangkatan, dan tujuan anda!
                 </Text>
@@ -96,9 +107,16 @@ const RincianTiket = ({ route, navigation })=> {
             if (searchResult.length == "") {
                 return (
                     <View style={rincianTiketStyle.itemContainer}>
-                        <Fontisto
-                            name="ship"
-                            color="orange"
+                        <Fontisto 
+                            style={{
+                                fontSize: 200,
+                                padding: 10,
+                                alignContent: 'center',
+                                justifyContent: 'center',
+                                width: '100%',
+                                textAlign: 'center',
+                            }} 
+                            name="ship" color="orange"
                         />
                         <Text style={rincianTiketStyle.textDanger}>
                             Maaf jadwal tidak ditemukan, tidak ada pelayaran yang tersedia.

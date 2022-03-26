@@ -17,6 +17,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import bottBarStyle from './BottomBarStyles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import SubRouteHome from "../../route/SubRouteHome";
+import SubRoutePesanan from "../../route/SubRoutePesanan";
 
 const Tab = createBottomTabNavigator();
 
@@ -166,7 +167,7 @@ const BottomBar = ({}) => {
                         headerTitleAlign: 'center',
                     }}
                     name="Daftar Pesanan" 
-                    component={PesananScreen} />
+                    component={SubRoutePesanan} />
                 <Tab.Screen 
                     options={{
                         headerStyle: {

@@ -16,7 +16,7 @@ import bottBarStyle from '../../components/BottomBar/BottomBarStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Harga } from '../../static-db/data';
 
-const InformasiPemesanan = ({ route, navigation, onChangeText }) => {
+const InformasiPemesanan = ({ route, navigation }) => {
     const { data } = route.params;
     
     const [identitas, setIdentitas] = useState({
@@ -25,6 +25,7 @@ const InformasiPemesanan = ({ route, navigation, onChangeText }) => {
         kelamin: '',
         umur: '',
         harga: '',
+        status: '',
     });
 
     function createId() {
@@ -40,7 +41,7 @@ const InformasiPemesanan = ({ route, navigation, onChangeText }) => {
     const handleTextChanges = (mytextname) => {
         return (val) => {
             setIdentitas({ ...identitas, [mytextname]: val });
-            console.log(identitas);
+            // console.log(identitas);
         }
     }
 
@@ -51,7 +52,7 @@ const InformasiPemesanan = ({ route, navigation, onChangeText }) => {
         } catch (e) {
             console.log(error);
         }
-        console.log(value);
+        // console.log(value);
         console.log("Done!");
     }
 
