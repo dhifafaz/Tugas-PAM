@@ -7,10 +7,8 @@ import {
     TouchableWithoutFeedback,
     Pressable,
 } from "react-native";
-import PesananScreen from '../../screen/Pesanan/Pesanan';
 import PembatalanScreen from '../../screen/Pembatalan/Pembatalan';
 import LainnyaScreen from '../../screen/Lainnya/Lainnya';
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
@@ -189,10 +187,7 @@ const BottomBar = ({}) => {
                     listeners={() => ({
                         tabPress: (e) => {
                             e.preventDefault();
-                            // alert('Lainnya');
-                            // navigation.navigate('CustomModal');
                             setModalVisible(true);
-                            // focused = true;
                         },
                     })}
                     component={LainnyaScreen} />

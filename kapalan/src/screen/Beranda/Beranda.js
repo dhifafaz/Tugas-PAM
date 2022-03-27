@@ -15,7 +15,6 @@ const BerandaScreen = ({navigation}) => {
             style={berandaStyles.container}
         >
             <TicketForm navigation={navigation}/>
-               
         </View>
 
     );

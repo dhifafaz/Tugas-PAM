@@ -125,12 +125,7 @@ const RincianTiket = ({ route, navigation })=> {
                     </View>
                 );
             }
-            
-            // console.log(searchResult);
             return DataFound(searchResult[0]);
-                
-            // };
-            // return DataNotFound();
         };
         return DataNotFound();
     };

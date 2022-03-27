@@ -41,7 +41,6 @@ const InformasiPemesanan = ({ route, navigation }) => {
     const handleTextChanges = (mytextname) => {
         return (val) => {
             setIdentitas({ ...identitas, [mytextname]: val });
-            // console.log(identitas);
         }
     }
 
@@ -52,7 +51,6 @@ const InformasiPemesanan = ({ route, navigation }) => {
         } catch (e) {
             console.log(error);
         }
-        // console.log(value);
         console.log("Done!");
     }
 
@@ -69,6 +67,7 @@ const InformasiPemesanan = ({ route, navigation }) => {
         } catch (error) {
             console.log(error);
         }
+        console.log("Done!");
     };
 
     const onScreenLoad = () => {

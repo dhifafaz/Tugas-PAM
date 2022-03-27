@@ -79,9 +79,7 @@ const TicketForm = ({navigation}) => {
     const clearAsyncStorage = async() => {
         AsyncStorage.clear();
     }
-
-    // console.log(text);
-
+    
     return (
         
         <View

@@ -28,8 +28,6 @@ const informasiPemesananStyle = StyleSheet.create({
         paddingLeft: 30,
         paddingRight: 30,
         paddingTop: 25,
-        // height: '100%',
-        // paddingBottom: 30,
     },
     modalBodyContainer: {
         flexDirection: 'column',

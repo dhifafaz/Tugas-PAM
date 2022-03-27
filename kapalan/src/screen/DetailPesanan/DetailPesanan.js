@@ -27,7 +27,6 @@ const DetailPesanan = ({route, navigation}) => {
         try {
             const data = await AsyncStorage.getItem('pesanan-rev1');
             if (data !== null) {
-                console.log(data);
                 const jsonValue = JSON.parse(data);
                 setRetrieveData(jsonValue);
             }
@@ -47,21 +46,9 @@ const DetailPesanan = ({route, navigation}) => {
         } catch (error) {
             console.log(error);
         }
-        console.log(value);
         console.log("Done!");
     };
 
-    // const findObject = retrieveData.filter(item => item.uniqId === items.uniqId);
-
-    // const cancelSchedule = retrieveData.map(
-    //     (item) => {
-    //         if (item.uniqId === items.uniqId) {
-    //             item.status = 'dibatalkan';
-    //         }
-    //         return item;
-    //     }
-            
-    // )
     console.log(retrieveData);
 
     const displayDetail = () => {
