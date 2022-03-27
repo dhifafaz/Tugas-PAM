@@ -1,0 +1,68 @@
+import { StyleSheet } from 'react-native';
+
+const informasiPemesananStyle = StyleSheet.create({
+    columnContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        marginTop: 10,
+    },
+    formInput: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderWidth: 1,
+        borderColor: '#000',
+        height: 45,
+        borderRadius: 10,
+        marginLeft: 5,
+        marginRight: 5,
+        marginBottom: 10,
+        marginTop: 5,
+        paddingLeft: 20,
+    },
+    mainContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 25,
+    },
+    modalBodyContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 25,
+        paddingBottom: 15,
+        width: '100%',
+    },
+    titleText: {
+        fontSize: 16,
+        fontFamily: 'Ubuntu-Bold',
+        marginBottom: 10,
+        width: '100%',
+        textAlign: 'center',
+        color: 'black',
+        textTransform: 'uppercase',
+    },
+    nextButtonText: {
+        fontSize: 16,
+        fontFamily: 'Ubuntu-Bold',
+        marginBottom: 10,
+        width: '60%',
+        flexDirection: 'row',
+        textAlign: 'center',
+        color: 'white',
+        backgroundColor: 'orange',
+        textTransform: 'titlecase',
+        borderRadius: 10,
+        height: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+})
+
+export default informasiPemesananStyle;
