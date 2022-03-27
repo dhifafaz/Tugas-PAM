@@ -165,6 +165,7 @@ const BottomBar = ({}) => {
                             alignItems: 'center',
                         },
                         headerTitleAlign: 'center',
+                        unmountOnBlur: true,
                     }}
                     name="Daftar Pesanan" 
                     component={SubRoutePesanan} />

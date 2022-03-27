@@ -10,14 +10,10 @@ import {
     Modal,
     TouchableWithoutFeedback
 } from 'react-native';
-import {
-    Colors,
-} from 'react-native/Libraries/NewAppScreen';
 import detailPesananStyles from './DetailPesananStyle';
 import rincianTiketStyle from '../RincianTiket/RincianTiketStyle';
 import ticketFormStyles from '../../components/TicketForm/TicketFormStyles';
 import Invoice from '../../components/Invoice/Invoice';
-import { Harga } from '../../static-db/data';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const DetailPesanan = ({route, navigation}) => {
@@ -228,7 +224,7 @@ const DetailPesanan = ({route, navigation}) => {
             </ScrollView>
             );
         } else {
-            
+
         }
     }
 

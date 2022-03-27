@@ -82,11 +82,8 @@ const InformasiPemesanan = ({ route, navigation }) => {
     }, [])
 
     const historyOrder = [...retrieveData];
-    // historyOrde = retrieveData;
     historyOrder.push(pesanan); 
 
-    console.log("Ini history order" );
-    console.log(historyOrder);
 
     return(
         <ScrollView contentContainerStyle={informasiPemesananStyle.mainContainer}>
@@ -216,9 +213,10 @@ const InformasiPemesanan = ({ route, navigation }) => {
                             onPress={() => {
                                 setModalVisible(true);
                                 setTimeout(() => {
+
                                     const price = Harga.find((subItem) => subItem.kelas === data.kelas).harga;
-                                    setIdentitas({...identitas, harga: price});
-                                }, 500);
+                                    setIdentitas({...identitas, harga: price, status: "terjadwal"});
+                                }, 1500);
                             }}
                             
                         >

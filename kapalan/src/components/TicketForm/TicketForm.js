@@ -7,12 +7,12 @@ import {
 } from 'react-native';
 import ticketFormStyles from './TicketFormStyles';
 import Fontisto from 'react-native-vector-icons/Fontisto';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import ModalHarbour from '../CustomModalDropDown/ModalHarbour';
 import ModalLayanan from '../CustomModalDropDown/ModalLayanan';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const TicketForm = ({navigation}) => {
     moment.updateLocale('en', {
@@ -75,6 +75,10 @@ const TicketForm = ({navigation}) => {
     const closeModalClass = () => {
         setModalVisibleClass(!modalVisibleClass);
     };
+
+    const clearAsyncStorage = async() => {
+        AsyncStorage.clear();
+    }
 
     // console.log(text);
 
@@ -145,6 +149,7 @@ const TicketForm = ({navigation}) => {
                     onPress={() => {
                         setModalVisibleHarbour(true);
                         setTarget('tujuan');
+                        // clearAsyncStorage();
                     }}
                     style={ticketFormStyles.inputText}
                 >
