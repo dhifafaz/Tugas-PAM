@@ -192,6 +192,10 @@ const BottomBar = ({}) => {
                     })}
                     component={LainnyaScreen} />
             </Tab.Navigator>
+            <View
+            >
+                
+            </View>
         </NavigationContainer>
     );
 };
