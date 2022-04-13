@@ -8,7 +8,7 @@ import {
     Pressable,
 } from "react-native";
 import PembatalanScreen from '../../screen/Pembatalan/Pembatalan';
-import LainnyaScreen from '../../screen/Lainnya/Lainnya';
+import LainnyaScreen from './LainnyaScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
