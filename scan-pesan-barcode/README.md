@@ -1,7 +1,20 @@
 # Tugas Individu 4 PAM
 1. Nama Aplikasi : ScanPesanBarcode
 2. Deskripsi :
-3. Daftar Package :
+
+   Aplikasi ini adalah aplikasi sederhana untuk menscan barcode yang ada, terkhusus bila barcode ini menyisipkan pesan rahasia. Berikut tampilannya :
+   
+   ![alt-text](https://github.com/dhifafaz/Tugas-PAM/blob/master/SS/4-1.jpeg)
+   
+   ![alt-text](https://github.com/dhifafaz/Tugas-PAM/blob/master/SS/4-2.jpeg)
+   
+   ![alt-text](https://github.com/dhifafaz/Tugas-PAM/blob/master/SS/4-3.jpeg)
+   
+   ![alt-text](https://github.com/dhifafaz/Tugas-PAM/blob/master/SS/4-4.jpeg)
+   
+   ![alt-text](https://github.com/dhifafaz/Tugas-PAM/blob/master/SS/4-5.jpeg)
+   
+4. Daftar Package :
     * "expo": "~44.0.0"
     * "expo-status-bar": "~1.2.0"
     * "react": "17.0.1"
